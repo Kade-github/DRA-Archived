@@ -245,65 +245,8 @@ namespace DRA_PLUGIN
 
         public static Role GetRoleFromString(string roleName)
         {
-            Role a = Role.UNASSIGNED;
-            switch (roleName)
-            {
-                case "CHAOS_INSURGENCY":
-                    a = Role.CHAOS_INSURGENCY;
-                    break;
-                case "CLASSD":
-                    a = Role.CLASSD;
-                    break;
-                case "FACILITY_GUARD":
-                    a = Role.FACILITY_GUARD;
-                    break;
-                case "NTF_CADET":
-                    a = Role.NTF_CADET;
-                    break;
-                case "NTF_COMMANDER":
-                    a = Role.NTF_COMMANDER;
-                    break;
-                case "NTF_LIEUTENANT":
-                    a = Role.NTF_LIEUTENANT;
-                    break;
-                case "NTF_SCIENTIST":
-                    a = Role.NTF_SCIENTIST;
-                    break;
-                case "SCIENTIST":
-                    a = Role.SCIENTIST;
-                    break;
-                case "SCP_049":
-                    a = Role.SCP_049;
-                    break;
-                case "SCP_049_2":
-                    a = Role.SCP_049_2;
-                    break;
-                case "SCP_079":
-                    a = Role.SCP_079;
-                    break;
-                case "SCP_096":
-                    a = Role.SCP_096;
-                    break;
-                case "SCP_106":
-                    a = Role.SCP_106;
-                    break;
-                case "SCP_173":
-                    a = Role.SCP_173;
-                    break;
-                case "SCP_939_53":
-                    a = Role.SCP_939_53;
-                    break;
-                case "SCP_939_89":
-                    a = Role.SCP_939_89;
-                    break;
-                case "TUTORIAL":
-                    a = Role.TUTORIAL;
-                    break;
-                case "SPECTATOR":
-                    a = Role.SPECTATOR;
-                    break;
-            }
-            return a;
+            Role role = (Role)System.Enum.Parse(typeof(Role), roleName);
+            return role;
         }
 
         public static Player FindPlayer(string name)
