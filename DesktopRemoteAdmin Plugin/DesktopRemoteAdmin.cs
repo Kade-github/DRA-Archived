@@ -36,7 +36,7 @@ namespace DRA_PLUGIN
 	    if (GetConfigString("dra_password") == "")
 	    {
 	    Error("The config option 'dra_password' is not set, this is incredibly unsafe! The plugin will not run untill this is set.");
-	    pluginManager.DisablePlugin("kade.dra");
+	    pluginManager.DisablePlugin(this);
 	    }
         }
 
