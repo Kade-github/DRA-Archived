@@ -77,7 +77,7 @@ namespace DRA_PLUGIN
                     case "login":
                         if (plugin.GetConfigBool("dra_logs"))
                             plugin.Info("Client wanting to login!");
-                        if (data[1] != password)
+                        if (Crypto.DecryptStringAES(data[1], "yi4dJqrYPC3iBf9AHvJO0VH0xbQmcTA06FDPqRDCuLtiwmvmJJ20XDFKIUmRCBBAcDtSTkrwIemo9JiSCgSixBJhCuXd56mGUHMABeaWimRHheisWn99qjzxEkl4MQo0Z6Z6NSHaXid7iSX8GPi2vZnLUM634jIRo6LNgtkble5DWG2MWhz2pHBQdHSxyyfsOMopKgfc7gGPjSL5yN5C29dzBcT57TegXSiDyj3U6MS4Xg4wm2jfKgBN7SwK6WLp") != password)
                         {
                             // Banning
                             if (dic.ContainsKey(ip))
@@ -111,7 +111,23 @@ namespace DRA_PLUGIN
                         }
                         if (plugin.GetConfigBool("dra_logs"))
                             plugin.Info("Login accepted!");
-                        SendData(stream, "true");
+                        if (dic[ip] == 3)
+                        {
+                            DateTime currentTime = DateTime.Now;
+                            if (bans.ContainsKey(ip))
+                            {
+                                int result = DateTime.Compare(currentTime, bans[ip]);
+                                if (result > 0)
+                                {
+                                    dic.Remove(ip);
+                                    bans.Remove(ip);
+                                }
+                                else
+                                    SendData(stream, "banned");
+                            }
+                        }
+                        else
+                            SendData(stream, "true");
                         break;
                     #region commands
                     case "cmd":
