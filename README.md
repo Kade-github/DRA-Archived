@@ -14,3 +14,9 @@ Then extract the UI, then run the server, and the UI. Get your server IP then yo
 
 ## Screenshots
 ![DRA](https://i.imgur.com/VdKslYw.png "Main UI")
+
+## Config
+```
+Key             Default Value
+dra_password: password123512
+```
