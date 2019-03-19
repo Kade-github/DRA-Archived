@@ -1,4 +1,4 @@
-﻿using DesktopRemoteAdmin_UI.Libs;
+using DesktopRemoteAdmin_UI.Libs;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -54,9 +54,13 @@ namespace DesktopRemoteAdmin_UI
 
                 string[] data = Tcp.Recieve(s);
 
-                if (data[0] != "true")
+                if (data[0] == "false")
                     MessageBox.Show("Incorrect password!", "Desktop Remote Admin Login");
-                else
+                else if (data[0] == "banned")
+                {
+                    MessageBox.Show("You have been banned for 2 Hours because of 3 failed password attemps to this sever!", "Desktop Remote Admin Login");
+                }
+                else if (data[0] == "true")
                 {
                     MessageBox.Show("Welcome!", "Desktop Remote Admin Login");
                     Properties.Settings.Default.cachedIP = txt_IP.Text;
