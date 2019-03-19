@@ -69,6 +69,10 @@ namespace DesktopRemoteAdmin_UI
 
                 if (data[0] == "false")
                     MessageBox.Show("Failed to connect with the server,\nReason: Bad Password!", "DRA Connection");
+                else if (data[0] == "notStarted")
+                {
+                    listBox1.Items.Add("The server has not fully started!");
+                }
                 else
                 {
                     string data2 = string.Join("\n", data);
