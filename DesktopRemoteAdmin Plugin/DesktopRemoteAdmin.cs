@@ -15,7 +15,7 @@ namespace DRA_PLUGIN
         name = "Desktop Remote Admin",
         description = "A Desktop version of Remote Admin.",
         id = "kade.dra",
-        version = "1.3.1",
+        version = "1.4",
         SmodMajor = 3,
         SmodMinor = 3,
         SmodRevision = 1

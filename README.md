@@ -32,3 +32,4 @@ You can do it, i'll look thru it. And we can get to it! (rhyme inteded)
 - ~~Adding remeber me functionailty~~
 - ~~Optimizing the code a little more.~~
 - ~~Adding more config options.~~
+- ~~Adding AES256 Encrpytion~~
