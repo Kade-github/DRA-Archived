@@ -1,4 +1,4 @@
-using DRA_PLUGIN.Game;
+﻿using DRA_PLUGIN.Game;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -27,7 +27,16 @@ namespace DRA_PLUGIN
         {
             TcpListener listener = new TcpListener(IPAddress.Any, plugin.GetConfigInt("dra_port"));
             listener.Start();
+            if (plugin.GetConfigString("dra_password") == null)
+            {
+                plugin.Error("The config option 'dra_password' is not set, this is incredibly unsafe! The plugin will not run untill this is set.");
+                plugin.pluginManager.DisablePlugin(plugin);
+                return;
+            }
+            if (!plugin.GetConfigBool("dra_status"))
+            { plugin.pluginManager.DisablePlugin(plugin); return; }
             plugin.Info($"Started TCP Server on port {plugin.GetConfigInt("dra_port")}!");
+
             while (true)
             {
                 TcpClient client = listener.AcceptTcpClient();
@@ -35,14 +44,12 @@ namespace DRA_PLUGIN
             }
         }
 
-        private static void Unban(object source, ElapsedEventArgs e)
-        {
-            Console.WriteLine("Hello World!");
-        }
-
         private static void Commander(object obj)
         {
+            bool accept = true;
             var tcpClient = (TcpClient)obj;
+            if (queue > 10)
+                accept = false;
             try
             {
 
@@ -52,14 +59,15 @@ namespace DRA_PLUGIN
 
                 string[] data = Recieve(stream);
 
-                if (queue > 10)
+                if (!accept)
                     SendData(stream, "fullQueue");
 
                 queue += 1;
-                plugin.Info("Connection from " + ip);
-
-
-                plugin.Debug("Command: " + string.Join("|", data));
+                if (plugin.GetConfigBool("dra_logs"))
+                {
+                    plugin.Info("Queue: " + queue + "/10");
+                    plugin.Info("Connection from " + ip);
+                }
 
                 string password = plugin.GetConfigString("dra_password");
 
@@ -67,7 +75,8 @@ namespace DRA_PLUGIN
                 {
                     // Login
                     case "login":
-                        plugin.Info("Client wanting to login!");
+                        if (plugin.GetConfigBool("dra_logs"))
+                            plugin.Info("Client wanting to login!");
                         if (data[1] != password)
                         {
                             // Banning
@@ -100,35 +109,46 @@ namespace DRA_PLUGIN
                             SendData(stream, "false");
                             break;
                         }
-                        plugin.Info("Login accepted!");
+                        if (plugin.GetConfigBool("dra_logs"))
+                            plugin.Info("Login accepted!");
                         SendData(stream, "true");
                         break;
                     #region commands
                     case "cmd":
                         if (data[1] != password)
                         {
-                            plugin.Warn("Client tried to use a command, but the password was incorrect!\nPassword: " + data[1]);
+                            if (plugin.GetConfigBool("dra_logs"))
+                                plugin.Warn("Client tried to use a command, but the password was incorrect!\nPassword: " + data[1]);
                             SendData(stream, "false");
                             break;
                         }
                         switch (data[2])
                         {
                             case "getPlayers":
-                                string players = "";
-                                List<Player> a = plugin.Server.GetPlayers();
-                                foreach (Player s in a)
+                                if (Variables.canGetPlayers)
                                 {
-                                    if (players == "")
-                                        players = s.Name;
-                                    else
-                                        players = "\n" + s.Name;
+                                    string players = "";
+                                    List<Player> a = plugin.Server.GetPlayers();
+                                    foreach (Player s in a)
+                                    {
+                                        if (players == "")
+                                            players = s.Name;
+                                        else
+                                            players = "\n" + s.Name;
+                                    }
+                                    SendData(stream, players);
+                                    break;
                                 }
-                                SendData(stream, players);
-                                break;
+                                else
+                                {
+                                    SendData(stream, "notStarted");
+                                    break;
+                                }
                             case "getPlayerInfo":
                                 try
                                 {
-                                    plugin.Info("Finding Player");
+                                    if (plugin.GetConfigBool("dra_logs"))
+                                        plugin.Info("Finding Player");
                                     Player p = FindPlayer(data[3]);
                                     string pData = $"Ip: {p.IpAddress}\nRank: {p.GetRankName()}\nRole: {p.TeamRole.Role}";
                                     SendData(stream, pData);
@@ -154,7 +174,8 @@ namespace DRA_PLUGIN
                             case "kickPlayer":
                                 try
                                 {
-                                    plugin.Info("Finding Player");
+                                    if (plugin.GetConfigBool("dra_logs"))
+                                        plugin.Info("Finding Player");
                                     Player p = FindPlayer(data[3]);
                                     p.Ban(0);
                                     SendData(stream, "true");
@@ -167,7 +188,8 @@ namespace DRA_PLUGIN
                             case "banPlayer":
                                 try
                                 {
-                                    plugin.Info("Finding Player");
+                                    if (plugin.GetConfigBool("dra_logs"))
+                                        plugin.Info("Finding Player");
                                     Player p = FindPlayer(data[3]);
                                     p.Ban(int.Parse(data[4]));
                                     SendData(stream, "true");
@@ -180,7 +202,8 @@ namespace DRA_PLUGIN
                             case "infectPlayer":
                                 try
                                 {
-                                    plugin.Info("Finding Player");
+                                    if (plugin.GetConfigBool("dra_logs"))
+                                        plugin.Info("Finding Player");
                                     Player p = FindPlayer(data[3]);
                                     p.Infect(100);
                                     SendData(stream, "true");
@@ -193,7 +216,8 @@ namespace DRA_PLUGIN
                             case "killPlayer":
                                 try
                                 {
-                                    plugin.Info("Finding Player");
+                                    if (plugin.GetConfigBool("dra_logs"))
+                                        plugin.Info("Finding Player");
                                     Player p = FindPlayer(data[3]);
                                     p.Kill();
                                     SendData(stream, "true");
@@ -206,7 +230,8 @@ namespace DRA_PLUGIN
                             case "sendPBC":
                                 try
                                 {
-                                    plugin.Info("Finding Player");
+                                    if (plugin.GetConfigBool("dra_logs"))
+                                        plugin.Info("Finding Player");
                                     Player p = FindPlayer(data[3]);
                                     p.PersonalBroadcast(10, data[4], true);
                                     SendData(stream, "true");
@@ -219,7 +244,8 @@ namespace DRA_PLUGIN
                             case "restartRound":
                                 try
                                 {
-                                    plugin.Info("Restarting Round");
+                                    if (plugin.GetConfigBool("dra_logs"))
+                                        plugin.Info("Restarting Round");
                                     plugin.Server.Round.RestartRound();
                                     SendData(stream, "true");
                                 }
@@ -279,11 +305,15 @@ namespace DRA_PLUGIN
                         break;
                         #endregion
                 }
-                queue -= 1;
             }
             catch (Exception e)
             {
                 plugin.Error("Connection Failed on TCPServer's Side.\n" + e.ToString());
+            }
+            if (accept)
+            {
+                queue -= 1;
+                plugin.Info("Queue: " + queue + "/10");
             }
             tcpClient.Close();
         }
