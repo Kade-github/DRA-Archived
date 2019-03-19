@@ -1,0 +1,7 @@
+C:\Users\kadep\Documents\Thing\ExamplePlugin\obj\Debug\ExamplePlugin.csprojAssemblyReference.cache
+C:\Users\kadep\Documents\Thing\ExamplePlugin\obj\Debug\ExamplePlugin.csproj.CoreCompileInputs.cache
+C:\Users\kadep\Documents\Thing\Builds\ExamplePlugin.dll
+C:\Users\kadep\Documents\Thing\Builds\ExamplePlugin.pdb
+C:\Users\kadep\Documents\Thing\ExamplePlugin\obj\Debug\ExamplePlugin.csproj.CopyComplete
+C:\Users\kadep\Documents\Thing\ExamplePlugin\obj\Debug\ExamplePlugin.dll
+C:\Users\kadep\Documents\Thing\ExamplePlugin\obj\Debug\ExamplePlugin.pdb

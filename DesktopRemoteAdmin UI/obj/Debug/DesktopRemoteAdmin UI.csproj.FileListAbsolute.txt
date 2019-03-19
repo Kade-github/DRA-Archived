@@ -1,0 +1,11 @@
+C:\Users\kadep\Documents\Thing\DesktopRemoteAdmin UI\bin\Debug\DesktopRemoteAdmin UI.exe.config
+C:\Users\kadep\Documents\Thing\DesktopRemoteAdmin UI\bin\Debug\DesktopRemoteAdmin UI.exe
+C:\Users\kadep\Documents\Thing\DesktopRemoteAdmin UI\bin\Debug\DesktopRemoteAdmin UI.pdb
+C:\Users\kadep\Documents\Thing\DesktopRemoteAdmin UI\obj\Debug\DesktopRemoteAdmin_UI.Form1.resources
+C:\Users\kadep\Documents\Thing\DesktopRemoteAdmin UI\obj\Debug\DesktopRemoteAdmin_UI.Properties.Resources.resources
+C:\Users\kadep\Documents\Thing\DesktopRemoteAdmin UI\obj\Debug\DesktopRemoteAdmin UI.csproj.GenerateResource.cache
+C:\Users\kadep\Documents\Thing\DesktopRemoteAdmin UI\obj\Debug\DesktopRemoteAdmin UI.csproj.CoreCompileInputs.cache
+C:\Users\kadep\Documents\Thing\DesktopRemoteAdmin UI\obj\Debug\DesktopRemoteAdmin UI.exe
+C:\Users\kadep\Documents\Thing\DesktopRemoteAdmin UI\obj\Debug\DesktopRemoteAdmin UI.pdb
+C:\Users\kadep\Documents\Thing\DesktopRemoteAdmin UI\obj\Debug\DesktopRemoteAdmin UI.csprojAssemblyReference.cache
+C:\Users\kadep\Documents\Thing\DesktopRemoteAdmin UI\obj\Debug\DesktopRemoteAdmin_UI.Main.resources
