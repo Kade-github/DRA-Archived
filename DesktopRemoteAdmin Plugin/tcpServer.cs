@@ -1,4 +1,4 @@
-﻿using DRA_PLUGIN.Game;
+using DRA_PLUGIN.Game;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -8,6 +8,8 @@ using System.Threading;
 using Smod2.API;
 using System.Threading.Tasks;
 using System.Linq;
+using System.IO;
+using System.Timers;
 
 namespace DRA_PLUGIN
 {
@@ -15,6 +17,11 @@ namespace DRA_PLUGIN
     {
         public static DesktopRemoteAdmin plugin;
 
+        static int queue = 0;
+
+        static Dictionary<string, int> dic = new Dictionary<string, int>();
+
+        static Dictionary<string, DateTime> bans = new Dictionary<string, DateTime>();
 
         public static void StartServer()
         {
@@ -28,19 +35,31 @@ namespace DRA_PLUGIN
             }
         }
 
+        private static void Unban(object source, ElapsedEventArgs e)
+        {
+            Console.WriteLine("Hello World!");
+        }
+
         private static void Commander(object obj)
         {
             var tcpClient = (TcpClient)obj;
             try
             {
+
                 string ip = ((IPEndPoint)tcpClient.Client.RemoteEndPoint).Address.ToString();
-                plugin.Info("Connection from " + ip);
-                
+
                 NetworkStream stream = tcpClient.GetStream();
 
                 string[] data = Recieve(stream);
 
-                plugin.Debug("Command: " + string.Join("|",data));
+                if (queue > 10)
+                    SendData(stream, "fullQueue");
+
+                queue += 1;
+                plugin.Info("Connection from " + ip);
+
+
+                plugin.Debug("Command: " + string.Join("|", data));
 
                 string password = plugin.GetConfigString("dra_password");
 
@@ -51,6 +70,32 @@ namespace DRA_PLUGIN
                         plugin.Info("Client wanting to login!");
                         if (data[1] != password)
                         {
+                            // Banning
+                            if (dic.ContainsKey(ip))
+                                if (dic[ip] == 3)
+                                {
+                                    DateTime currentTime = DateTime.Now;
+                                    if (bans.ContainsKey(ip))
+                                    {
+                                        int result = DateTime.Compare(currentTime, bans[ip]);
+                                        if (result > 0)
+                                        {
+                                            dic.Remove(ip);
+                                            bans.Remove(ip);
+                                        }
+                                        else
+                                            SendData(stream, "banned");
+                                    }
+                                    else
+                                    {
+                                        SendData(stream, "banned");
+                                        bans.Add(ip, currentTime.AddHours(2));
+                                    }
+                                }
+                                else
+                                    dic.Add(ip, dic[ip] + 1);
+                            else
+                                dic.Add(ip, 1);
                             plugin.Warn("Client tried to login, but failed! Using password " + data[1]);
                             SendData(stream, "false");
                             break;
@@ -66,7 +111,7 @@ namespace DRA_PLUGIN
                             SendData(stream, "false");
                             break;
                         }
-                        switch(data[2])
+                        switch (data[2])
                         {
                             case "getPlayers":
                                 string players = "";
@@ -232,9 +277,9 @@ namespace DRA_PLUGIN
                                 break;
                         }
                         break;
-                    #endregion
+                        #endregion
                 }
-
+                queue -= 1;
             }
             catch (Exception e)
             {
