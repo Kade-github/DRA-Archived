@@ -33,6 +33,11 @@ namespace DRA_PLUGIN
                 Info("\n---------------\nD E S K T O P  R E M O T E  A D M I N\nCreated by Kade#6969\nThe best Desktop Tool for remote adminstration!\n---------------");
             else
                 pluginManager.DisablePlugin("kade.dra");
+	    if (GetConfigString("dra_password") == "")
+	    {
+	    Error("The config option 'dra_password' is not set, this is incredibly unsafe! The plugin will not run untill this is set.");
+	    pluginManager.DisablePlugin("kade.dra");
+	    }
         }
 
         public override void Register()
@@ -44,7 +49,7 @@ namespace DRA_PLUGIN
                 tcpServer.StartServer();
             }).Start();
             // Configs
-            AddConfig(new ConfigSetting("dra_password", "password123512", SettingType.STRING, true, "The password used to login to the UI."));
+            AddConfig(new ConfigSetting("dra_password", "", SettingType.STRING, true, "The password used to login to the UI."));
             AddConfig(new ConfigSetting("dra_status", true, SettingType.BOOL, true, "Set it to false to disable to plugin"));
             AddConfig(new ConfigSetting("dra_port", 7790, SettingType.NUMERIC, true, "The port for it to connect."));
             // Events
