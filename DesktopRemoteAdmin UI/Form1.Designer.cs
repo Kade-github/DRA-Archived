@@ -31,14 +31,16 @@
             this.outerRim = new System.Windows.Forms.Panel();
             this.innerRim = new System.Windows.Forms.Panel();
             this.btn_Connect = new System.Windows.Forms.Button();
-            this.lbl_Pass = new System.Windows.Forms.Label();
-            this.txt_Pass = new System.Windows.Forms.TextBox();
             this.lbl_IP = new System.Windows.Forms.Label();
             this.txt_IP = new System.Windows.Forms.TextBox();
             this.lbl_Title = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btn_Close = new System.Windows.Forms.Button();
+            this.txt_Port = new System.Windows.Forms.TextBox();
+            this.lbl_Port = new System.Windows.Forms.Label();
+            this.txt_Pass = new System.Windows.Forms.TextBox();
+            this.lbl_Pass = new System.Windows.Forms.Label();
             this.outerRim.SuspendLayout();
             this.innerRim.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -57,6 +59,8 @@
             // innerRim
             // 
             this.innerRim.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.innerRim.Controls.Add(this.lbl_Port);
+            this.innerRim.Controls.Add(this.txt_Port);
             this.innerRim.Controls.Add(this.btn_Connect);
             this.innerRim.Controls.Add(this.lbl_Pass);
             this.innerRim.Controls.Add(this.txt_Pass);
@@ -82,31 +86,12 @@
             this.btn_Connect.UseVisualStyleBackColor = true;
             this.btn_Connect.Click += new System.EventHandler(this.Btn_Connect_Click);
             // 
-            // lbl_Pass
-            // 
-            this.lbl_Pass.AutoSize = true;
-            this.lbl_Pass.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Pass.ForeColor = System.Drawing.Color.White;
-            this.lbl_Pass.Location = new System.Drawing.Point(218, 125);
-            this.lbl_Pass.Name = "lbl_Pass";
-            this.lbl_Pass.Size = new System.Drawing.Size(153, 36);
-            this.lbl_Pass.TabIndex = 4;
-            this.lbl_Pass.Text = "Password";
-            // 
-            // txt_Pass
-            // 
-            this.txt_Pass.Location = new System.Drawing.Point(198, 164);
-            this.txt_Pass.Name = "txt_Pass";
-            this.txt_Pass.Size = new System.Drawing.Size(199, 20);
-            this.txt_Pass.TabIndex = 3;
-            this.txt_Pass.UseSystemPasswordChar = true;
-            // 
             // lbl_IP
             // 
             this.lbl_IP.AutoSize = true;
             this.lbl_IP.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_IP.ForeColor = System.Drawing.Color.White;
-            this.lbl_IP.Location = new System.Drawing.Point(271, 54);
+            this.lbl_IP.Location = new System.Drawing.Point(244, 57);
             this.lbl_IP.Name = "lbl_IP";
             this.lbl_IP.Size = new System.Drawing.Size(45, 36);
             this.lbl_IP.TabIndex = 2;
@@ -114,7 +99,7 @@
             // 
             // txt_IP
             // 
-            this.txt_IP.Location = new System.Drawing.Point(224, 94);
+            this.txt_IP.Location = new System.Drawing.Point(198, 94);
             this.txt_IP.Name = "txt_IP";
             this.txt_IP.Size = new System.Drawing.Size(141, 20);
             this.txt_IP.TabIndex = 1;
@@ -163,6 +148,44 @@
             this.btn_Close.UseVisualStyleBackColor = true;
             this.btn_Close.Click += new System.EventHandler(this.Btn_Close_Click);
             // 
+            // txt_Port
+            // 
+            this.txt_Port.Location = new System.Drawing.Point(345, 94);
+            this.txt_Port.Name = "txt_Port";
+            this.txt_Port.Size = new System.Drawing.Size(52, 20);
+            this.txt_Port.TabIndex = 5;
+            this.txt_Port.Text = "7790";
+            // 
+            // lbl_Port
+            // 
+            this.lbl_Port.AutoSize = true;
+            this.lbl_Port.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Port.ForeColor = System.Drawing.Color.White;
+            this.lbl_Port.Location = new System.Drawing.Point(342, 67);
+            this.lbl_Port.Name = "lbl_Port";
+            this.lbl_Port.Size = new System.Drawing.Size(56, 27);
+            this.lbl_Port.TabIndex = 6;
+            this.lbl_Port.Text = "Port";
+            // 
+            // txt_Pass
+            // 
+            this.txt_Pass.Location = new System.Drawing.Point(198, 164);
+            this.txt_Pass.Name = "txt_Pass";
+            this.txt_Pass.Size = new System.Drawing.Size(199, 20);
+            this.txt_Pass.TabIndex = 3;
+            this.txt_Pass.UseSystemPasswordChar = true;
+            // 
+            // lbl_Pass
+            // 
+            this.lbl_Pass.AutoSize = true;
+            this.lbl_Pass.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Pass.ForeColor = System.Drawing.Color.White;
+            this.lbl_Pass.Location = new System.Drawing.Point(218, 125);
+            this.lbl_Pass.Name = "lbl_Pass";
+            this.lbl_Pass.Size = new System.Drawing.Size(153, 36);
+            this.lbl_Pass.TabIndex = 4;
+            this.lbl_Pass.Text = "Password";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -192,10 +215,12 @@
         private System.Windows.Forms.Button btn_Close;
         private System.Windows.Forms.Label lbl_Title;
         private System.Windows.Forms.Button btn_Connect;
-        private System.Windows.Forms.Label lbl_Pass;
-        private System.Windows.Forms.TextBox txt_Pass;
         private System.Windows.Forms.Label lbl_IP;
         private System.Windows.Forms.TextBox txt_IP;
+        private System.Windows.Forms.Label lbl_Port;
+        private System.Windows.Forms.TextBox txt_Port;
+        private System.Windows.Forms.Label lbl_Pass;
+        private System.Windows.Forms.TextBox txt_Pass;
     }
 }
 

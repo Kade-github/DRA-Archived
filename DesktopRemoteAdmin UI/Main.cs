@@ -34,13 +34,14 @@ namespace DesktopRemoteAdmin_UI
         }
 
         static string ip = "127.0.0.1";
-
+        static int port = 7790;
         static string player { get; set; }
 
-        public Main(string setIp)
+        public Main(string setIp, string setPort)
         {
             InitializeComponent();
             ip = setIp;
+            port = int.Parse(setPort);
         }
 
         private void Btn_Close_Click(object sender, EventArgs e)
@@ -61,7 +62,7 @@ namespace DesktopRemoteAdmin_UI
                 listBox1.Items.Clear();
                 listBox1.Items.Add("Refreshing User List.");
                     Thread.Sleep(1000);
-                    NetworkStream s = Tcp.Connect(ip);
+                    NetworkStream s = Tcp.Connect(ip,port);
                 Tcp.SendData($"cmd|{Variables.CachePassword}|getPlayers", s);
 
                 string[] data = Tcp.Recieve(s);
@@ -103,7 +104,7 @@ namespace DesktopRemoteAdmin_UI
             try
             {
                 player = listBox1.GetItemText(listBox1.SelectedValue);
-                NetworkStream s = Tcp.Connect(ip);
+                NetworkStream s = Tcp.Connect(ip,port);
                 Tcp.SendData($"cmd|{Variables.CachePassword}|getPlayerInfo|{player}", s);
                 string[] data = Tcp.Recieve(s);
                 if (data[0] == "false")
@@ -124,7 +125,7 @@ namespace DesktopRemoteAdmin_UI
         {
             try
             {
-                NetworkStream s = Tcp.Connect(ip);
+                NetworkStream s = Tcp.Connect(ip,port);
                 Tcp.SendData($"cmd|{Variables.CachePassword}|getPlayerInfo|{player}", s);
                 string[] data = Tcp.Recieve(s);
                 if (data[0] == "false")
@@ -143,7 +144,7 @@ namespace DesktopRemoteAdmin_UI
         {
             try
             {
-                NetworkStream s = Tcp.Connect(ip);
+                NetworkStream s = Tcp.Connect(ip,port);
                 Tcp.SendData($"cmd|{Variables.CachePassword}|forceClassPlayer|{player}|{className}", s);
                 string[] data = Tcp.Recieve(s);
                 if (data[0] == "true")
@@ -240,7 +241,7 @@ namespace DesktopRemoteAdmin_UI
 
         private void Button17_Click(object sender, EventArgs e)
         {
-            NetworkStream s = Tcp.Connect(ip);
+            NetworkStream s = Tcp.Connect(ip,port);
             Tcp.SendData($"cmd|{Variables.CachePassword}|kickPlayer|{player}", s);
 
             string[] data = Tcp.Recieve(s);
@@ -253,7 +254,7 @@ namespace DesktopRemoteAdmin_UI
 
         private void Button19_Click(object sender, EventArgs e)
         {
-            NetworkStream s = Tcp.Connect(ip);
+            NetworkStream s = Tcp.Connect(ip,port);
             Tcp.SendData($"cmd|{Variables.CachePassword}|infectPlayer|{player}", s);
 
             string[] data = Tcp.Recieve(s);
@@ -266,7 +267,7 @@ namespace DesktopRemoteAdmin_UI
 
         private void Button20_Click(object sender, EventArgs e)
         {
-            NetworkStream s = Tcp.Connect(ip);
+            NetworkStream s = Tcp.Connect(ip,port);
             Tcp.SendData($"cmd|{Variables.CachePassword}|killPlayer|{player}", s);
 
             string[] data = Tcp.Recieve(s);
@@ -279,7 +280,7 @@ namespace DesktopRemoteAdmin_UI
 
         private void Button16_Click(object sender, EventArgs e)
         {
-            NetworkStream s = Tcp.Connect(ip);
+            NetworkStream s = Tcp.Connect(ip,port);
             Tcp.SendData($"cmd|{Variables.CachePassword}|killPlayer|{player}|{textBox1.Text}", s);
 
             string[] data = Tcp.Recieve(s);
@@ -292,7 +293,7 @@ namespace DesktopRemoteAdmin_UI
 
         private void Button18_Click(object sender, EventArgs e)
         {
-            NetworkStream s = Tcp.Connect(ip);
+            NetworkStream s = Tcp.Connect(ip,port);
             Tcp.SendData($"cmd|{Variables.CachePassword}|sendPBC|{player}|{textBox2.Text}", s);
 
             string[] data = Tcp.Recieve(s);
@@ -305,7 +306,7 @@ namespace DesktopRemoteAdmin_UI
 
         private void Button22_Click(object sender, EventArgs e)
         {
-            NetworkStream s = Tcp.Connect(ip);
+            NetworkStream s = Tcp.Connect(ip,port);
             Tcp.SendData($"cmd|{Variables.CachePassword}|restartRound", s);
 
             string[] data = Tcp.Recieve(s);
@@ -318,7 +319,7 @@ namespace DesktopRemoteAdmin_UI
 
         private void Button23_Click(object sender, EventArgs e)
         {
-            NetworkStream s = Tcp.Connect(ip);
+            NetworkStream s = Tcp.Connect(ip,port);
             Tcp.SendData($"cmd|{Variables.CachePassword}|broadcast|{textBox4.Text}", s);
 
             string[] data = Tcp.Recieve(s);
@@ -331,7 +332,7 @@ namespace DesktopRemoteAdmin_UI
 
         private void Button25_Click(object sender, EventArgs e)
         {
-            NetworkStream s = Tcp.Connect(ip);
+            NetworkStream s = Tcp.Connect(ip,port);
             Tcp.SendData($"cmd|{Variables.CachePassword}|nuke|true", s);
 
             string[] data = Tcp.Recieve(s);
@@ -344,7 +345,7 @@ namespace DesktopRemoteAdmin_UI
 
         private void Button26_Click(object sender, EventArgs e)
         {
-            NetworkStream s = Tcp.Connect(ip);
+            NetworkStream s = Tcp.Connect(ip,port);
             Tcp.SendData($"cmd|{Variables.CachePassword}|nuke|false", s);
 
             string[] data = Tcp.Recieve(s);
@@ -357,7 +358,7 @@ namespace DesktopRemoteAdmin_UI
 
         private void Button27_Click(object sender, EventArgs e)
         {
-            NetworkStream s = Tcp.Connect(ip);
+            NetworkStream s = Tcp.Connect(ip,port);
             Tcp.SendData($"cmd|{Variables.CachePassword}|spawnNTF", s);
 
             string[] data = Tcp.Recieve(s);
@@ -370,7 +371,7 @@ namespace DesktopRemoteAdmin_UI
 
         private void Button28_Click(object sender, EventArgs e)
         {
-            NetworkStream s = Tcp.Connect(ip);
+            NetworkStream s = Tcp.Connect(ip,port);
             Tcp.SendData($"cmd|{Variables.CachePassword}|spawnCI", s);
 
             string[] data = Tcp.Recieve(s);

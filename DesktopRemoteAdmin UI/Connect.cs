@@ -36,6 +36,7 @@ namespace DesktopRemoteAdmin_UI
             InitializeComponent();
             txt_IP.Text = Properties.Settings.Default.cachedIP;
             txt_Pass.Text = Properties.Settings.Default.cachedPASS;
+            txt_Port.Text = Properties.Settings.Default.cachedPORT.ToString();
         }
 
         private void Btn_Close_Click(object sender, EventArgs e)
@@ -47,7 +48,7 @@ namespace DesktopRemoteAdmin_UI
         {
             try
             {
-                NetworkStream s = Tcp.Connect(txt_IP.Text);
+                NetworkStream s = Tcp.Connect(txt_IP.Text,int.Parse(txt_Port.Text));
 
                 Tcp.SendData("login|" + txt_Pass.Text,s);
 
@@ -60,9 +61,10 @@ namespace DesktopRemoteAdmin_UI
                     MessageBox.Show("Welcome!", "Desktop Remote Admin Login");
                     Properties.Settings.Default.cachedIP = txt_IP.Text;
                     Properties.Settings.Default.cachedPASS = txt_Pass.Text;
+                    Properties.Settings.Default.cachedPORT = int.Parse(txt_Port.Text);
                     Properties.Settings.Default.Save();
                     Variables.CachePassword = txt_Pass.Text;
-                    new Main(txt_IP.Text).Show();
+                    new Main(txt_IP.Text,txt_Port.Text).Show();
                     Hide();
                 }
             }
