@@ -319,7 +319,7 @@ namespace DesktopRemoteAdmin_UI
         private void Button23_Click(object sender, EventArgs e)
         {
             NetworkStream s = Tcp.Connect(ip);
-            Tcp.SendData($"cmd|{Variables.CachePassword}|broadcast|${textBox4.Text}", s);
+            Tcp.SendData($"cmd|{Variables.CachePassword}|broadcast|{textBox4.Text}", s);
 
             string[] data = Tcp.Recieve(s);
 

@@ -34,6 +34,8 @@ namespace DesktopRemoteAdmin_UI
         public Form1()
         {
             InitializeComponent();
+            txt_IP.Text = Properties.Settings.Default.cachedIP;
+            txt_Pass.Text = Properties.Settings.Default.cachedPASS;
         }
 
         private void Btn_Close_Click(object sender, EventArgs e)
@@ -56,6 +58,9 @@ namespace DesktopRemoteAdmin_UI
                 else
                 {
                     MessageBox.Show("Welcome!", "Desktop Remote Admin Login");
+                    Properties.Settings.Default.cachedIP = txt_IP.Text;
+                    Properties.Settings.Default.cachedPASS = txt_Pass.Text;
+                    Properties.Settings.Default.Save();
                     Variables.CachePassword = txt_Pass.Text;
                     new Main(txt_IP.Text).Show();
                     Hide();
