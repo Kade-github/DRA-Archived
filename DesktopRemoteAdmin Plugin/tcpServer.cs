@@ -18,9 +18,9 @@ namespace DRA_PLUGIN
 
         public static void StartServer()
         {
-            TcpListener listener = new TcpListener(IPAddress.Any, 7790);
+            TcpListener listener = new TcpListener(IPAddress.Any, plugin.GetConfigInt("dra_port"));
             listener.Start();
-            plugin.Info("Started TCP Server on port 7790!");
+            plugin.Info($"Started TCP Server on port {plugin.GetConfigInt("dra_port")}!");
             while (true)
             {
                 TcpClient client = listener.AcceptTcpClient();
