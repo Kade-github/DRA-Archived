@@ -33,6 +33,7 @@
             this.playerInnerRim = new System.Windows.Forms.Panel();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.innerRim = new System.Windows.Forms.Panel();
+            this.button21 = new System.Windows.Forms.Button();
             this.button28 = new System.Windows.Forms.Button();
             this.button27 = new System.Windows.Forms.Button();
             this.button26 = new System.Windows.Forms.Button();
@@ -73,7 +74,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btn_Close = new System.Windows.Forms.Button();
-            this.button21 = new System.Windows.Forms.Button();
             this.outerRim.SuspendLayout();
             this.playerOuterRim.SuspendLayout();
             this.playerInnerRim.SuspendLayout();
@@ -168,6 +168,19 @@
             this.innerRim.Size = new System.Drawing.Size(640, 417);
             this.innerRim.TabIndex = 0;
             this.innerRim.Paint += new System.Windows.Forms.PaintEventHandler(this.InnerRim_Paint);
+            // 
+            // button21
+            // 
+            this.button21.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button21.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button21.ForeColor = System.Drawing.Color.White;
+            this.button21.Location = new System.Drawing.Point(328, 368);
+            this.button21.Name = "button21";
+            this.button21.Size = new System.Drawing.Size(100, 23);
+            this.button21.TabIndex = 39;
+            this.button21.Text = "SCP-096";
+            this.button21.UseVisualStyleBackColor = true;
+            this.button21.Click += new System.EventHandler(this.Button21_Click);
             // 
             // button28
             // 
@@ -665,19 +678,6 @@
             this.btn_Close.Text = "Close [X]";
             this.btn_Close.UseVisualStyleBackColor = true;
             this.btn_Close.Click += new System.EventHandler(this.Btn_Close_Click);
-            // 
-            // button21
-            // 
-            this.button21.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button21.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button21.ForeColor = System.Drawing.Color.White;
-            this.button21.Location = new System.Drawing.Point(328, 368);
-            this.button21.Name = "button21";
-            this.button21.Size = new System.Drawing.Size(100, 23);
-            this.button21.TabIndex = 39;
-            this.button21.Text = "SCP-096";
-            this.button21.UseVisualStyleBackColor = true;
-            this.button21.Click += new System.EventHandler(this.Button21_Click);
             // 
             // Main
             // 

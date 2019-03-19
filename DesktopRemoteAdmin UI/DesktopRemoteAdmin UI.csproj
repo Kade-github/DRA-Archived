@@ -55,6 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Libs\Crypto.cs" />
     <Compile Include="Libs\Variables.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
