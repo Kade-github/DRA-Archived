@@ -18,10 +18,10 @@ Then extract the UI, then run the server, and the UI. Get your server IP then yo
 ## Config
 ```
 Key             Default Value
-dra_password: <none you need to set it or the plugin wont work>
-dra_status: true
-dra_port: 7790
-dra_logs: false
+dra_password: <none you need to set it or the plugin wont work> - The password to be used when logging in.
+dra_status: true - Disable or Enable the plugin!
+dra_port: 7790 - The port used to login!
+dra_logs: false - Logs level, true = a bunch of logs. false = little logs.
 ```
 
 ## Contributing
