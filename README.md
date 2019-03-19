@@ -21,6 +21,7 @@ Key             Default Value
 dra_password: <none you need to set it or the plugin wont work>
 dra_status: true
 dra_port: 7790
+dra_logs: false
 ```
 
 ## Contributing
@@ -29,5 +30,5 @@ You can do it, i'll look thru it. And we can get to it! (rhyme inteded)
 ### T O D O  L I S T
 - Fixing the bugs
 - ~~Adding remeber me functionailty~~
-- Optimizing the code a little more.
+- ~~Optimizing the code a little more.~~
 - ~~Adding more config options.~~
