@@ -11,6 +11,7 @@ This is a plugin that is based on multiple control panels for other servers, but
 Well first, download the ZIP from releases, then put the .dll in your sm_plugins folder. Then you add this to your scp:sl config:
 `dra_password: password`, change password to what ever you want. Remeber that! Its how you access your panel.
 Then extract the UI, then run the server, and the UI. Get your server IP then your servers DRA Password. And click connect. You should have access to everything now!
+### MAKE SURE TO PORTFORWARD '7790'
 
 ## Screenshots
 ![DRA](https://i.imgur.com/VdKslYw.png "Main UI")
