@@ -30,4 +30,4 @@ You can do it, i'll look thru it. And we can get to it! (rhyme inteded)
 - Fixing the bugs
 - ~~Adding remeber me functionailty~~
 - Optimizing the code a little more.
-- Adding more config options.
+- ~~Adding more config options.~~
