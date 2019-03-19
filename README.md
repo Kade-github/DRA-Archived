@@ -18,7 +18,7 @@ Then extract the UI, then run the server, and the UI. Get your server IP then yo
 ## Config
 ```
 Key             Default Value
-dra_password: password123512
+dra_password: <none you need to set it or the plugin wont work>
 dra_status: true
 dra_port: 7790
 ```
