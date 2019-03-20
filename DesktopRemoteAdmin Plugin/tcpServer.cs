@@ -80,6 +80,29 @@ namespace DRA_PLUGIN
                         try
                         {
                             Crypto.DecryptStringAES(data[1], password);
+                            if (plugin.GetConfigBool("dra_logs"))
+                                plugin.Info("Login accepted!");
+                            if (dic.ContainsKey(ip))
+                            {
+                                if (dic[ip] == 3)
+                                {
+                                    DateTime currentTime = DateTime.Now;
+                                    if (bans.ContainsKey(ip))
+                                    {
+                                        int result = DateTime.Compare(currentTime, bans[ip]);
+                                        if (result > 0)
+                                        {
+                                            dic.Remove(ip);
+                                            bans.Remove(ip);
+                                        }
+                                        else
+                                            SendData(stream, "banned");
+                                    }
+                                }
+                            }
+                            else
+                                SendData(stream, "true");
+                            break;
                         }
                         catch
                         {
@@ -109,33 +132,10 @@ namespace DRA_PLUGIN
                                     dic.Add(ip, dic[ip] + 1);
                             else
                                 dic.Add(ip, 1);
-                            plugin.Warn("Client tried to login, but failed! Using password " + data[1]);
+                            plugin.Warn("Client tried to login, but failed!");
                             SendData(stream, "false");
                             break;
                         }
-                        if (plugin.GetConfigBool("dra_logs"))
-                            plugin.Info("Login accepted!");
-                        if (dic.ContainsKey(ip))
-                        {
-                            if (dic[ip] == 3)
-                            {
-                                DateTime currentTime = DateTime.Now;
-                                if (bans.ContainsKey(ip))
-                                {
-                                    int result = DateTime.Compare(currentTime, bans[ip]);
-                                    if (result > 0)
-                                    {
-                                        dic.Remove(ip);
-                                        bans.Remove(ip);
-                                    }
-                                    else
-                                        SendData(stream, "banned");
-                                }
-                            }
-                        }
-                        else
-                            SendData(stream, "true");
-                        break;
                     #region commands
                     case "cmd":
                         try
@@ -345,7 +345,7 @@ namespace DRA_PLUGIN
 
         public static Role GetRoleFromString(string roleName)
         {
-            Role role = (Role)System.Enum.Parse(typeof(Role), roleName);
+            Role role = (Role)Enum.Parse(typeof(Role), roleName);
             return role;
         }
 
