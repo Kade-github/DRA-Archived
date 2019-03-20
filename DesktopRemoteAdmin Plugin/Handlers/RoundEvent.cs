@@ -6,13 +6,13 @@ using Smod2.Events;
 
 namespace DRA_PLUGIN.Handlers 
 {
-    class RoundEvent : IEventHandlerRoundStart, IEventHandlerRoundEnd
+    class RoundEvent : IEventHandlerWaitingForPlayers, IEventHandlerRoundEnd
     {
         private readonly DesktopRemoteAdmin plugin;
         public RoundEvent(DesktopRemoteAdmin plugin) => this.plugin = plugin;
 
-        public void OnRoundEnd(RoundEndEvent ev) => Variables.RoundStarted = false;
+        public void OnRoundEnd(RoundEndEvent ev) => Variables.canGetPlayers = false;
 
-        public void OnRoundStart(RoundStartEvent ev) => Variables.RoundStarted = true;
+        public void OnWaitingForPlayers(WaitingForPlayersEvent ev) => Variables.canGetPlayers = true;
     }
 }

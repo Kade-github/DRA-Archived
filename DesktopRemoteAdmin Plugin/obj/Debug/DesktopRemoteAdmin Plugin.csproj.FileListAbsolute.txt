@@ -5,3 +5,15 @@ C:\Users\kadep\Documents\Thing\ExamplePlugin\obj\Debug\DesktopRemoteAdmin Plugin
 C:\Users\kadep\Documents\Thing\ExamplePlugin\obj\Debug\DesktopRemoteAdmin Plugin.csproj.CopyComplete
 C:\Users\kadep\Documents\Thing\ExamplePlugin\obj\Debug\DesktopRemoteAdminPlugin.dll
 C:\Users\kadep\Documents\Thing\ExamplePlugin\obj\Debug\DesktopRemoteAdminPlugin.pdb
+C:\Users\kadep\Documents\Thing\DesktopRemoteAdmin Plugin\obj\Debug\DesktopRemoteAdmin Plugin.csprojAssemblyReference.cache
+C:\Users\kadep\Documents\Thing\DesktopRemoteAdmin Plugin\obj\Debug\DesktopRemoteAdmin Plugin.csproj.CoreCompileInputs.cache
+C:\Users\kadep\Documents\Thing\DesktopRemoteAdmin Plugin\obj\Debug\DesktopRemoteAdmin Plugin.csproj.CopyComplete
+C:\Users\kadep\Documents\Thing\DesktopRemoteAdmin Plugin\obj\Debug\DesktopRemoteAdminPlugin.dll
+C:\Users\kadep\Documents\Thing\DesktopRemoteAdmin Plugin\obj\Debug\DesktopRemoteAdminPlugin.pdb
+C:\Users\kadep\Documents\Desktop Remote Admin\Desktop-Remote-Admin-SCP-SL-SMOD-PLUGIN-\Builds\DesktopRemoteAdminPlugin.dll
+C:\Users\kadep\Documents\Desktop Remote Admin\Desktop-Remote-Admin-SCP-SL-SMOD-PLUGIN-\Builds\DesktopRemoteAdminPlugin.pdb
+C:\Users\kadep\Documents\Desktop Remote Admin\Desktop-Remote-Admin-SCP-SL-SMOD-PLUGIN-\DesktopRemoteAdmin Plugin\obj\Debug\DesktopRemoteAdmin Plugin.csprojAssemblyReference.cache
+C:\Users\kadep\Documents\Desktop Remote Admin\Desktop-Remote-Admin-SCP-SL-SMOD-PLUGIN-\DesktopRemoteAdmin Plugin\obj\Debug\DesktopRemoteAdmin Plugin.csproj.CoreCompileInputs.cache
+C:\Users\kadep\Documents\Desktop Remote Admin\Desktop-Remote-Admin-SCP-SL-SMOD-PLUGIN-\DesktopRemoteAdmin Plugin\obj\Debug\DesktopRemoteAdmin Plugin.csproj.CopyComplete
+C:\Users\kadep\Documents\Desktop Remote Admin\Desktop-Remote-Admin-SCP-SL-SMOD-PLUGIN-\DesktopRemoteAdmin Plugin\obj\Debug\DesktopRemoteAdminPlugin.dll
+C:\Users\kadep\Documents\Desktop Remote Admin\Desktop-Remote-Admin-SCP-SL-SMOD-PLUGIN-\DesktopRemoteAdmin Plugin\obj\Debug\DesktopRemoteAdminPlugin.pdb

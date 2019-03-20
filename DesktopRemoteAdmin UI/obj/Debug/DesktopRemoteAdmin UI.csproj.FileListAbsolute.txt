@@ -9,3 +9,26 @@ C:\Users\kadep\Documents\Thing\DesktopRemoteAdmin UI\obj\Debug\DesktopRemoteAdmi
 C:\Users\kadep\Documents\Thing\DesktopRemoteAdmin UI\obj\Debug\DesktopRemoteAdmin UI.pdb
 C:\Users\kadep\Documents\Thing\DesktopRemoteAdmin UI\obj\Debug\DesktopRemoteAdmin UI.csprojAssemblyReference.cache
 C:\Users\kadep\Documents\Thing\DesktopRemoteAdmin UI\obj\Debug\DesktopRemoteAdmin_UI.Main.resources
+C:\Users\kadep\Documents\Thing\DesktopRemoteAdmin UI\bin\Debug\AutoMapper.dll
+C:\Users\kadep\Documents\Thing\DesktopRemoteAdmin UI\bin\Debug\Newtonsoft.Json.dll
+C:\Users\kadep\Documents\Thing\DesktopRemoteAdmin UI\bin\Debug\Steam.Models.dll
+C:\Users\kadep\Documents\Thing\DesktopRemoteAdmin UI\bin\Debug\AutoMapper.xml
+C:\Users\kadep\Documents\Thing\DesktopRemoteAdmin UI\bin\Debug\Newtonsoft.Json.xml
+C:\Users\kadep\Documents\Thing\DesktopRemoteAdmin UI\obj\Debug\DesktopRemoteAdmin UI.csproj.CopyComplete
+C:\Users\kadep\Documents\Desktop Remote Admin\Desktop-Remote-Admin-SCP-SL-SMOD-PLUGIN-\DesktopRemoteAdmin UI\bin\Debug\DesktopRemoteAdmin UI.exe.config
+C:\Users\kadep\Documents\Desktop Remote Admin\Desktop-Remote-Admin-SCP-SL-SMOD-PLUGIN-\DesktopRemoteAdmin UI\bin\Debug\DesktopRemoteAdmin UI.exe
+C:\Users\kadep\Documents\Desktop Remote Admin\Desktop-Remote-Admin-SCP-SL-SMOD-PLUGIN-\DesktopRemoteAdmin UI\bin\Debug\DesktopRemoteAdmin UI.pdb
+C:\Users\kadep\Documents\Desktop Remote Admin\Desktop-Remote-Admin-SCP-SL-SMOD-PLUGIN-\DesktopRemoteAdmin UI\bin\Debug\AutoMapper.dll
+C:\Users\kadep\Documents\Desktop Remote Admin\Desktop-Remote-Admin-SCP-SL-SMOD-PLUGIN-\DesktopRemoteAdmin UI\bin\Debug\Newtonsoft.Json.dll
+C:\Users\kadep\Documents\Desktop Remote Admin\Desktop-Remote-Admin-SCP-SL-SMOD-PLUGIN-\DesktopRemoteAdmin UI\bin\Debug\Steam.Models.dll
+C:\Users\kadep\Documents\Desktop Remote Admin\Desktop-Remote-Admin-SCP-SL-SMOD-PLUGIN-\DesktopRemoteAdmin UI\bin\Debug\AutoMapper.xml
+C:\Users\kadep\Documents\Desktop Remote Admin\Desktop-Remote-Admin-SCP-SL-SMOD-PLUGIN-\DesktopRemoteAdmin UI\bin\Debug\Newtonsoft.Json.xml
+C:\Users\kadep\Documents\Desktop Remote Admin\Desktop-Remote-Admin-SCP-SL-SMOD-PLUGIN-\DesktopRemoteAdmin UI\obj\Debug\DesktopRemoteAdmin UI.csprojAssemblyReference.cache
+C:\Users\kadep\Documents\Desktop Remote Admin\Desktop-Remote-Admin-SCP-SL-SMOD-PLUGIN-\DesktopRemoteAdmin UI\obj\Debug\DesktopRemoteAdmin_UI.Main.resources
+C:\Users\kadep\Documents\Desktop Remote Admin\Desktop-Remote-Admin-SCP-SL-SMOD-PLUGIN-\DesktopRemoteAdmin UI\obj\Debug\DesktopRemoteAdmin_UI.Form1.resources
+C:\Users\kadep\Documents\Desktop Remote Admin\Desktop-Remote-Admin-SCP-SL-SMOD-PLUGIN-\DesktopRemoteAdmin UI\obj\Debug\DesktopRemoteAdmin_UI.Properties.Resources.resources
+C:\Users\kadep\Documents\Desktop Remote Admin\Desktop-Remote-Admin-SCP-SL-SMOD-PLUGIN-\DesktopRemoteAdmin UI\obj\Debug\DesktopRemoteAdmin UI.csproj.GenerateResource.cache
+C:\Users\kadep\Documents\Desktop Remote Admin\Desktop-Remote-Admin-SCP-SL-SMOD-PLUGIN-\DesktopRemoteAdmin UI\obj\Debug\DesktopRemoteAdmin UI.csproj.CoreCompileInputs.cache
+C:\Users\kadep\Documents\Desktop Remote Admin\Desktop-Remote-Admin-SCP-SL-SMOD-PLUGIN-\DesktopRemoteAdmin UI\obj\Debug\DesktopRemoteAdmin UI.csproj.CopyComplete
+C:\Users\kadep\Documents\Desktop Remote Admin\Desktop-Remote-Admin-SCP-SL-SMOD-PLUGIN-\DesktopRemoteAdmin UI\obj\Debug\DesktopRemoteAdmin UI.exe
+C:\Users\kadep\Documents\Desktop Remote Admin\Desktop-Remote-Admin-SCP-SL-SMOD-PLUGIN-\DesktopRemoteAdmin UI\obj\Debug\DesktopRemoteAdmin UI.pdb

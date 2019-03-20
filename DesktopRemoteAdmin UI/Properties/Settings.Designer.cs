@@ -46,5 +46,17 @@ namespace DesktopRemoteAdmin_UI.Properties {
                 this["cachedPASS"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int cachedPORT {
+            get {
+                return ((int)(this["cachedPORT"]));
+            }
+            set {
+                this["cachedPORT"] = value;
+            }
+        }
     }
 }

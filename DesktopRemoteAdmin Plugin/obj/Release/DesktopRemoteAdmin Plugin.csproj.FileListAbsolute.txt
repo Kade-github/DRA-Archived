@@ -1,0 +1,8 @@
+C:\Users\kadep\Documents\Thing\DesktopRemoteAdmin Plugin\bin\Release\DesktopRemoteAdminPlugin.dll
+C:\Users\kadep\Documents\Thing\DesktopRemoteAdmin Plugin\bin\Release\DesktopRemoteAdminPlugin.pdb
+C:\Users\kadep\Documents\Thing\DesktopRemoteAdmin Plugin\bin\Release\Smod2.dll
+C:\Users\kadep\Documents\Thing\DesktopRemoteAdmin Plugin\obj\Release\DesktopRemoteAdmin Plugin.csprojAssemblyReference.cache
+C:\Users\kadep\Documents\Thing\DesktopRemoteAdmin Plugin\obj\Release\DesktopRemoteAdmin Plugin.csproj.CoreCompileInputs.cache
+C:\Users\kadep\Documents\Thing\DesktopRemoteAdmin Plugin\obj\Release\DesktopRemoteAdmin Plugin.csproj.CopyComplete
+C:\Users\kadep\Documents\Thing\DesktopRemoteAdmin Plugin\obj\Release\DesktopRemoteAdminPlugin.dll
+C:\Users\kadep\Documents\Thing\DesktopRemoteAdmin Plugin\obj\Release\DesktopRemoteAdminPlugin.pdb

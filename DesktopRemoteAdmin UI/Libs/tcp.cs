@@ -9,9 +9,9 @@ namespace DesktopRemoteAdmin_UI.Libs
 {
     class Tcp
     {
-        public static NetworkStream Connect(string ip)
+        public static NetworkStream Connect(string ip,int port)
         {
-            TcpClient client = new TcpClient(ip, 7790);
+            TcpClient client = new TcpClient(ip, port);
 
             NetworkStream stream = client.GetStream();
 

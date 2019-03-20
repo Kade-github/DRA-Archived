@@ -8,6 +8,6 @@ namespace DRA_PLUGIN.Game
 {
     class Variables
     {
-        public static bool RoundStarted { get; set; }
+        public static bool canGetPlayers { get; set; }
     }
 }

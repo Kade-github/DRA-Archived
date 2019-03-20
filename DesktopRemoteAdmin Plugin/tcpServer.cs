@@ -111,19 +111,22 @@ namespace DRA_PLUGIN
                         }
                         if (plugin.GetConfigBool("dra_logs"))
                             plugin.Info("Login accepted!");
-                        if (dic[ip] == 3)
+                        if (dic.ContainsKey(ip))
                         {
-                            DateTime currentTime = DateTime.Now;
-                            if (bans.ContainsKey(ip))
+                            if (dic[ip] == 3)
                             {
-                                int result = DateTime.Compare(currentTime, bans[ip]);
-                                if (result > 0)
+                                DateTime currentTime = DateTime.Now;
+                                if (bans.ContainsKey(ip))
                                 {
-                                    dic.Remove(ip);
-                                    bans.Remove(ip);
+                                    int result = DateTime.Compare(currentTime, bans[ip]);
+                                    if (result > 0)
+                                    {
+                                        dic.Remove(ip);
+                                        bans.Remove(ip);
+                                    }
+                                    else
+                                        SendData(stream, "banned");
                                 }
-                                else
-                                    SendData(stream, "banned");
                             }
                         }
                         else
@@ -329,7 +332,8 @@ namespace DRA_PLUGIN
             if (accept)
             {
                 queue -= 1;
-                plugin.Info("Queue: " + queue + "/10");
+                if (plugin.GetConfigBool("dra_logs"))
+                    plugin.Info("Queue: " + queue + "/10");
             }
             tcpClient.Close();
         }

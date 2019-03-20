@@ -1,0 +1,17 @@
+C:\Users\kadep\Documents\Thing\DesktopRemoteAdmin UI\bin\Release\DesktopRemoteAdmin UI.exe.config
+C:\Users\kadep\Documents\Thing\DesktopRemoteAdmin UI\bin\Release\DesktopRemoteAdmin UI.exe
+C:\Users\kadep\Documents\Thing\DesktopRemoteAdmin UI\bin\Release\DesktopRemoteAdmin UI.pdb
+C:\Users\kadep\Documents\Thing\DesktopRemoteAdmin UI\bin\Release\AutoMapper.dll
+C:\Users\kadep\Documents\Thing\DesktopRemoteAdmin UI\bin\Release\Newtonsoft.Json.dll
+C:\Users\kadep\Documents\Thing\DesktopRemoteAdmin UI\bin\Release\Steam.Models.dll
+C:\Users\kadep\Documents\Thing\DesktopRemoteAdmin UI\bin\Release\AutoMapper.xml
+C:\Users\kadep\Documents\Thing\DesktopRemoteAdmin UI\bin\Release\Newtonsoft.Json.xml
+C:\Users\kadep\Documents\Thing\DesktopRemoteAdmin UI\obj\Release\DesktopRemoteAdmin UI.csprojAssemblyReference.cache
+C:\Users\kadep\Documents\Thing\DesktopRemoteAdmin UI\obj\Release\DesktopRemoteAdmin_UI.Main.resources
+C:\Users\kadep\Documents\Thing\DesktopRemoteAdmin UI\obj\Release\DesktopRemoteAdmin_UI.Form1.resources
+C:\Users\kadep\Documents\Thing\DesktopRemoteAdmin UI\obj\Release\DesktopRemoteAdmin_UI.Properties.Resources.resources
+C:\Users\kadep\Documents\Thing\DesktopRemoteAdmin UI\obj\Release\DesktopRemoteAdmin UI.csproj.GenerateResource.cache
+C:\Users\kadep\Documents\Thing\DesktopRemoteAdmin UI\obj\Release\DesktopRemoteAdmin UI.csproj.CoreCompileInputs.cache
+C:\Users\kadep\Documents\Thing\DesktopRemoteAdmin UI\obj\Release\DesktopRemoteAdmin UI.csproj.CopyComplete
+C:\Users\kadep\Documents\Thing\DesktopRemoteAdmin UI\obj\Release\DesktopRemoteAdmin UI.exe
+C:\Users\kadep\Documents\Thing\DesktopRemoteAdmin UI\obj\Release\DesktopRemoteAdmin UI.pdb
