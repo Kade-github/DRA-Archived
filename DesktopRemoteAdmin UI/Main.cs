@@ -63,7 +63,7 @@ namespace DesktopRemoteAdmin_UI
                 listBox1.Items.Add("Refreshing User List.");
                     Thread.Sleep(1000);
                     NetworkStream s = Tcp.Connect(ip,port);
-                Tcp.SendData($"cmd|{Variables.CachePassword}|getPlayers", s);
+                Tcp.SendData($"cmd|{Crypto.EncryptStringAES("thisIsASuperSecureAuthTokenThatIsReallyGucciAndNeededSoHeres69Dolars", Variables.CachePassword)}|getPlayers", s);
 
                 string[] data = Tcp.Recieve(s);
 

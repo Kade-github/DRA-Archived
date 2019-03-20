@@ -50,7 +50,7 @@ namespace DesktopRemoteAdmin_UI
             {
                 NetworkStream s = Tcp.Connect(txt_IP.Text,int.Parse(txt_Port.Text));
 
-                Tcp.SendData("login|" + Crypto.EncryptStringAES(txt_Pass.Text, "yi4dJqrYPC3iBf9AHvJO0VH0xbQmcTA06FDPqRDCuLtiwmvmJJ20XDFKIUmRCBBAcDtSTkrwIemo9JiSCgSixBJhCuXd56mGUHMABeaWimRHheisWn99qjzxEkl4MQo0Z6Z6NSHaXid7iSX8GPi2vZnLUM634jIRo6LNgtkble5DWG2MWhz2pHBQdHSxyyfsOMopKgfc7gGPjSL5yN5C29dzBcT57TegXSiDyj3U6MS4Xg4wm2jfKgBN7SwK6WLp"),s);
+                Tcp.SendData("login|" + Crypto.EncryptStringAES("dudeIdkDecryptThisSheitLmAO", txt_Pass.Text),s);
 
                 string[] data = Tcp.Recieve(s);
 

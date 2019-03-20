@@ -77,7 +77,11 @@ namespace DRA_PLUGIN
                     case "login":
                         if (plugin.GetConfigBool("dra_logs"))
                             plugin.Info("Client wanting to login!");
-                        if (Crypto.DecryptStringAES(data[1], "yi4dJqrYPC3iBf9AHvJO0VH0xbQmcTA06FDPqRDCuLtiwmvmJJ20XDFKIUmRCBBAcDtSTkrwIemo9JiSCgSixBJhCuXd56mGUHMABeaWimRHheisWn99qjzxEkl4MQo0Z6Z6NSHaXid7iSX8GPi2vZnLUM634jIRo6LNgtkble5DWG2MWhz2pHBQdHSxyyfsOMopKgfc7gGPjSL5yN5C29dzBcT57TegXSiDyj3U6MS4Xg4wm2jfKgBN7SwK6WLp") != password)
+                        try
+                        {
+                            Crypto.DecryptStringAES(data[1], password);
+                        }
+                        catch
                         {
                             // Banning
                             if (dic.ContainsKey(ip))
@@ -134,10 +138,14 @@ namespace DRA_PLUGIN
                         break;
                     #region commands
                     case "cmd":
-                        if (data[1] != password)
+                        try
+                        {
+                            Crypto.DecryptStringAES(data[1], password);
+                        }
+                        catch
                         {
                             if (plugin.GetConfigBool("dra_logs"))
-                                plugin.Warn("Client tried to use a command, but the password was incorrect!\nPassword: " + data[1]);
+                                plugin.Warn("Client tried to use a command, but the password was incorrect!");
                             SendData(stream, "false");
                             break;
                         }
@@ -150,10 +158,7 @@ namespace DRA_PLUGIN
                                     List<Player> a = plugin.Server.GetPlayers();
                                     foreach (Player s in a)
                                     {
-                                        if (players == "")
-                                            players = s.Name;
-                                        else
-                                            players = "\n" + s.Name;
+                                        players = "\n" + s.Name;
                                     }
                                     SendData(stream, players);
                                     break;
