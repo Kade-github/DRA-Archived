@@ -31,6 +31,7 @@ namespace DesktopRemoteAdmin_UI
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
         }
+
         public Form1()
         {
             InitializeComponent();
@@ -49,7 +50,7 @@ namespace DesktopRemoteAdmin_UI
             try
             {
                 NetworkStream s = Tcp.Connect(txt_IP.Text,int.Parse(txt_Port.Text));
-                MessageBox.Show(Crypto.EncryptStringAES("dudeIdkDecryptThisSheitLmAO", txt_Pass.Text));
+
                 Tcp.SendData("login|" + Crypto.EncryptStringAES("dudeIdkDecryptThisSheitLmAO", txt_Pass.Text),s);
 
                 string[] data = Tcp.Recieve(s);
