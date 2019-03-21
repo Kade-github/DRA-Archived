@@ -29,6 +29,7 @@ You can do it, i'll look thru it. And we can get to it! (rhyme inteded)
 
 ### T O D O  L I S T
 - Fixing the bugs
+- ~~Making the communication more secure~~
 - ~~Adding remeber me functionailty~~
 - ~~Optimizing the code a little more.~~
 - ~~Adding more config options.~~
