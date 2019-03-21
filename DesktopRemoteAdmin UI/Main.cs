@@ -63,7 +63,8 @@ namespace DesktopRemoteAdmin_UI
                 listBox1.Items.Add("Refreshing User List.");
                     Thread.Sleep(1000);
                     NetworkStream s = Tcp.Connect(ip,port);
-                Tcp.SendData($"cmd|{Crypto.EncryptStringAES("thisIsASuperSecureAuthTokenThatIsReallyGucciAndNeededSoHeres69Dolars", Variables.CachePassword)}|getPlayers", s);
+                    DateTime currentTime = DateTime.Now;
+                Tcp.SendData($"cmd|{Crypto.EncryptStringAES("thisIsASuperSecureAuthTokenThatIsReallyGucciAndNeededSoHeres69Dolars", Variables.CachePassword)}|getPlayers|{GetCurrentTime()}", s);
 
                 string[] data = Tcp.Recieve(s);
 
@@ -110,7 +111,7 @@ namespace DesktopRemoteAdmin_UI
             {
                 player = listBox1.GetItemText(listBox1.SelectedValue);
                 NetworkStream s = Tcp.Connect(ip,port);
-                Tcp.SendData($"cmd|{Variables.CachePassword}|getPlayerInfo|{player}", s);
+                Tcp.SendData($"cmd|{Crypto.EncryptStringAES("thisIsASuperSecureAuthTokenThatIsReallyGucciAndNeededSoHeres69Dolars", Variables.CachePassword)}|getPlayerInfo|{player}|{GetCurrentTime()}", s);
                 string[] data = Tcp.Recieve(s);
                 if (data[0] == "false")
                     MessageBox.Show("Failed to connect with the server,\nReason: Bad Password!", "DRA Connection");
@@ -131,7 +132,7 @@ namespace DesktopRemoteAdmin_UI
             try
             {
                 NetworkStream s = Tcp.Connect(ip,port);
-                Tcp.SendData($"cmd|{Variables.CachePassword}|getPlayerInfo|{player}", s);
+                Tcp.SendData($"cmd|{Crypto.EncryptStringAES("thisIsASuperSecureAuthTokenThatIsReallyGucciAndNeededSoHeres69Dolars", Variables.CachePassword)}|getPlayerInfo|{player}|{GetCurrentTime()}", s);
                 string[] data = Tcp.Recieve(s);
                 if (data[0] == "false")
                     MessageBox.Show("Failed to connect with the server,\nReason: Bad Password!", "DRA Connection");
@@ -150,7 +151,7 @@ namespace DesktopRemoteAdmin_UI
             try
             {
                 NetworkStream s = Tcp.Connect(ip,port);
-                Tcp.SendData($"cmd|{Variables.CachePassword}|forceClassPlayer|{player}|{className}", s);
+                Tcp.SendData($"cmd|{Crypto.EncryptStringAES("thisIsASuperSecureAuthTokenThatIsReallyGucciAndNeededSoHeres69Dolars", Variables.CachePassword)}|forceClassPlayer|{player}|{className}|{GetCurrentTime()}", s);
                 string[] data = Tcp.Recieve(s);
                 if (data[0] == "true")
                     MessageBox.Show("Success!", "DRA Commands");
@@ -247,7 +248,7 @@ namespace DesktopRemoteAdmin_UI
         private void Button17_Click(object sender, EventArgs e)
         {
             NetworkStream s = Tcp.Connect(ip,port);
-            Tcp.SendData($"cmd|{Variables.CachePassword}|kickPlayer|{player}", s);
+            Tcp.SendData($"cmd|{Crypto.EncryptStringAES("thisIsASuperSecureAuthTokenThatIsReallyGucciAndNeededSoHeres69Dolars", Variables.CachePassword)}|kickPlayer|{player}|{GetCurrentTime()}", s);
 
             string[] data = Tcp.Recieve(s);
 
@@ -260,7 +261,7 @@ namespace DesktopRemoteAdmin_UI
         private void Button19_Click(object sender, EventArgs e)
         {
             NetworkStream s = Tcp.Connect(ip,port);
-            Tcp.SendData($"cmd|{Variables.CachePassword}|infectPlayer|{player}", s);
+            Tcp.SendData($"cmd|{Crypto.EncryptStringAES("thisIsASuperSecureAuthTokenThatIsReallyGucciAndNeededSoHeres69Dolars", Variables.CachePassword)}|infectPlayer|{player}|{GetCurrentTime()}", s);
 
             string[] data = Tcp.Recieve(s);
 
@@ -273,7 +274,7 @@ namespace DesktopRemoteAdmin_UI
         private void Button20_Click(object sender, EventArgs e)
         {
             NetworkStream s = Tcp.Connect(ip,port);
-            Tcp.SendData($"cmd|{Variables.CachePassword}|killPlayer|{player}", s);
+            Tcp.SendData($"cmd|{Crypto.EncryptStringAES("thisIsASuperSecureAuthTokenThatIsReallyGucciAndNeededSoHeres69Dolars", Variables.CachePassword)}|killPlayer|{player}|{GetCurrentTime()}", s);
 
             string[] data = Tcp.Recieve(s);
 
@@ -286,7 +287,7 @@ namespace DesktopRemoteAdmin_UI
         private void Button16_Click(object sender, EventArgs e)
         {
             NetworkStream s = Tcp.Connect(ip,port);
-            Tcp.SendData($"cmd|{Variables.CachePassword}|killPlayer|{player}|{textBox1.Text}", s);
+            Tcp.SendData($"cmd|{Crypto.EncryptStringAES("thisIsASuperSecureAuthTokenThatIsReallyGucciAndNeededSoHeres69Dolars", Variables.CachePassword)}|killPlayer|{player}|{textBox1.Text}|{GetCurrentTime()}", s);
 
             string[] data = Tcp.Recieve(s);
 
@@ -299,7 +300,7 @@ namespace DesktopRemoteAdmin_UI
         private void Button18_Click(object sender, EventArgs e)
         {
             NetworkStream s = Tcp.Connect(ip,port);
-            Tcp.SendData($"cmd|{Variables.CachePassword}|sendPBC|{player}|{textBox2.Text}", s);
+            Tcp.SendData($"cmd|{Crypto.EncryptStringAES("thisIsASuperSecureAuthTokenThatIsReallyGucciAndNeededSoHeres69Dolars", Variables.CachePassword)}|sendPBC|{player}|{textBox2.Text}|{GetCurrentTime()}", s);
 
             string[] data = Tcp.Recieve(s);
 
@@ -312,7 +313,7 @@ namespace DesktopRemoteAdmin_UI
         private void Button22_Click(object sender, EventArgs e)
         {
             NetworkStream s = Tcp.Connect(ip,port);
-            Tcp.SendData($"cmd|{Variables.CachePassword}|restartRound", s);
+            Tcp.SendData($"cmd|{Crypto.EncryptStringAES("thisIsASuperSecureAuthTokenThatIsReallyGucciAndNeededSoHeres69Dolars", Variables.CachePassword)}|restartRound|{GetCurrentTime()}", s);
 
             string[] data = Tcp.Recieve(s);
 
@@ -325,7 +326,7 @@ namespace DesktopRemoteAdmin_UI
         private void Button23_Click(object sender, EventArgs e)
         {
             NetworkStream s = Tcp.Connect(ip,port);
-            Tcp.SendData($"cmd|{Variables.CachePassword}|broadcast|{textBox4.Text}", s);
+            Tcp.SendData($"cmd|{Crypto.EncryptStringAES("thisIsASuperSecureAuthTokenThatIsReallyGucciAndNeededSoHeres69Dolars", Variables.CachePassword)}|broadcast|{textBox4.Text}|{GetCurrentTime()}", s);
 
             string[] data = Tcp.Recieve(s);
 
@@ -338,7 +339,7 @@ namespace DesktopRemoteAdmin_UI
         private void Button25_Click(object sender, EventArgs e)
         {
             NetworkStream s = Tcp.Connect(ip,port);
-            Tcp.SendData($"cmd|{Variables.CachePassword}|nuke|true", s);
+            Tcp.SendData($"cmd|{Crypto.EncryptStringAES("thisIsASuperSecureAuthTokenThatIsReallyGucciAndNeededSoHeres69Dolars", Variables.CachePassword)}|nuke|true|{GetCurrentTime()}", s);
 
             string[] data = Tcp.Recieve(s);
 
@@ -351,7 +352,7 @@ namespace DesktopRemoteAdmin_UI
         private void Button26_Click(object sender, EventArgs e)
         {
             NetworkStream s = Tcp.Connect(ip,port);
-            Tcp.SendData($"cmd|{Variables.CachePassword}|nuke|false", s);
+            Tcp.SendData($"cmd|{Crypto.EncryptStringAES("thisIsASuperSecureAuthTokenThatIsReallyGucciAndNeededSoHeres69Dolars", Variables.CachePassword)}|nuke|false|{GetCurrentTime()}", s);
 
             string[] data = Tcp.Recieve(s);
 
@@ -364,7 +365,7 @@ namespace DesktopRemoteAdmin_UI
         private void Button27_Click(object sender, EventArgs e)
         {
             NetworkStream s = Tcp.Connect(ip,port);
-            Tcp.SendData($"cmd|{Variables.CachePassword}|spawnNTF", s);
+            Tcp.SendData($"cmd|{Crypto.EncryptStringAES("thisIsASuperSecureAuthTokenThatIsReallyGucciAndNeededSoHeres69Dolars", Variables.CachePassword)}|spawnNTF|{GetCurrentTime()}", s);
 
             string[] data = Tcp.Recieve(s);
 
@@ -377,7 +378,7 @@ namespace DesktopRemoteAdmin_UI
         private void Button28_Click(object sender, EventArgs e)
         {
             NetworkStream s = Tcp.Connect(ip,port);
-            Tcp.SendData($"cmd|{Variables.CachePassword}|spawnCI", s);
+            Tcp.SendData($"cmd|{Crypto.EncryptStringAES("thisIsASuperSecureAuthTokenThatIsReallyGucciAndNeededSoHeres69Dolars", Variables.CachePassword)}|spawnCI|{GetCurrentTime()}", s);
 
             string[] data = Tcp.Recieve(s);
 
@@ -385,6 +386,12 @@ namespace DesktopRemoteAdmin_UI
                 MessageBox.Show("Done!", "DRA Commands");
             else
                 MessageBox.Show("Failure!", "DRA Commands");
+        }
+
+        private static string GetCurrentTime()
+        {
+            DateTime currentTime = DateTime.Now;
+            return currentTime.ToLongTimeString();
         }
 
         private void Button21_Click(object sender, EventArgs e)

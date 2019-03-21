@@ -44,6 +44,12 @@ namespace DRA_PLUGIN
             }
         }
 
+        private static string GetCurrentTime()
+        {
+            DateTime currentTime = DateTime.Now;
+            return currentTime.ToLongTimeString();
+        }
+
         private static void Commander(object obj)
         {
             bool accept = true;
@@ -152,39 +158,56 @@ namespace DRA_PLUGIN
                         switch (data[2])
                         {
                             case "getPlayers":
-                                if (Variables.canGetPlayers)
+                                if (data[3] == GetCurrentTime())
                                 {
-                                    string players = "";
-                                    List<Player> a = plugin.Server.GetPlayers();
-                                    foreach (Player s in a)
+                                    if (Variables.canGetPlayers)
                                     {
-                                        players = "\n" + s.Name;
+                                        string players = "";
+                                        List<Player> a = plugin.Server.GetPlayers();
+                                        foreach (Player s in a)
+                                        {
+                                            players = "\n" + s.Name;
+                                        }
+                                        SendData(stream, players);
+                                        break;
                                     }
-                                    SendData(stream, players);
-                                    break;
+                                    else
+                                    {
+                                        SendData(stream, "notStarted");
+                                        break;
+                                    }
                                 }
                                 else
                                 {
-                                    SendData(stream, "notStarted");
+                                    SendData(stream, "false");
                                     break;
                                 }
                             case "getPlayerInfo":
-                                try
+                                if (data[4] == GetCurrentTime())
                                 {
-                                    if (plugin.GetConfigBool("dra_logs"))
-                                        plugin.Info("Finding Player");
-                                    Player p = FindPlayer(data[3]);
-                                    string pData = $"Ip: {p.IpAddress}\nRank: {p.GetRankName()}\nRole: {p.TeamRole.Role}";
-                                    SendData(stream, pData);
+                                    try
+                                    {
+                                        if (plugin.GetConfigBool("dra_logs"))
+                                            plugin.Info("Finding Player");
+                                        Player p = FindPlayer(data[3]);
+                                        string pData = $"Ip: {p.IpAddress}\nRank: {p.GetRankName()}\nRole: {p.TeamRole.Role}";
+                                        SendData(stream, pData);
+                                    }
+                                    catch
+                                    {
+                                        SendData(stream, "pNotFound");
+                                    }
                                 }
-                                catch
+                                else
                                 {
-                                    SendData(stream, "pNotFound");
+                                    SendData(stream, "false");
+                                    break;
                                 }
-
                                 break;
                             case "forceClassPlayer":
-                                try
+                                if (data[4] == GetCurrentTime())
+                                {
+                                    try
                                 {
                                     Player player = FindPlayer(data[3]);
                                     player.ChangeRole(GetRoleFromString(data[4]), true, true, false, true);
@@ -194,9 +217,17 @@ namespace DRA_PLUGIN
                                 {
                                     SendData(stream, "false");
                                 }
+                                }
+                                else
+                                {
+                                    SendData(stream, "false");
+                                    break;
+                                }
                                 break;
                             case "kickPlayer":
-                                try
+                                if (data[4] == GetCurrentTime())
+                                {
+                                    try
                                 {
                                     if (plugin.GetConfigBool("dra_logs"))
                                         plugin.Info("Finding Player");
@@ -208,9 +239,17 @@ namespace DRA_PLUGIN
                                 {
                                     SendData(stream, "pNotFound");
                                 }
+                                }
+                                else
+                                {
+                                    SendData(stream, "false");
+                                    break;
+                                }
                                 break;
                             case "banPlayer":
-                                try
+                                if (data[4] == GetCurrentTime())
+                                {
+                                    try
                                 {
                                     if (plugin.GetConfigBool("dra_logs"))
                                         plugin.Info("Finding Player");
@@ -222,9 +261,17 @@ namespace DRA_PLUGIN
                                 {
                                     SendData(stream, "pNotFound");
                                 }
+                                }
+                                else
+                                {
+                                    SendData(stream, "false");
+                                    break;
+                                }
                                 break;
                             case "infectPlayer":
-                                try
+                                if (data[4] == GetCurrentTime())
+                                {
+                                    try
                                 {
                                     if (plugin.GetConfigBool("dra_logs"))
                                         plugin.Info("Finding Player");
@@ -236,9 +283,17 @@ namespace DRA_PLUGIN
                                 {
                                     SendData(stream, "pNotFound");
                                 }
+                                }
+                                else
+                                {
+                                    SendData(stream, "false");
+                                    break;
+                                }
                                 break;
                             case "killPlayer":
-                                try
+                                if (data[4] == GetCurrentTime())
+                                {
+                                    try
                                 {
                                     if (plugin.GetConfigBool("dra_logs"))
                                         plugin.Info("Finding Player");
@@ -250,9 +305,17 @@ namespace DRA_PLUGIN
                                 {
                                     SendData(stream, "pNotFound");
                                 }
+                                }
+                                else
+                                {
+                                    SendData(stream, "false");
+                                    break;
+                                }
                                 break;
                             case "sendPBC":
-                                try
+                                if (data[4] == GetCurrentTime())
+                                {
+                                    try
                                 {
                                     if (plugin.GetConfigBool("dra_logs"))
                                         plugin.Info("Finding Player");
@@ -264,9 +327,17 @@ namespace DRA_PLUGIN
                                 {
                                     SendData(stream, "pNotFound");
                                 }
+                                }
+                                else
+                                {
+                                    SendData(stream, "false");
+                                    break;
+                                }
                                 break;
                             case "restartRound":
-                                try
+                                if (data[3] == GetCurrentTime())
+                                {
+                                    try
                                 {
                                     if (plugin.GetConfigBool("dra_logs"))
                                         plugin.Info("Restarting Round");
@@ -277,9 +348,17 @@ namespace DRA_PLUGIN
                                 {
                                     SendData(stream, "false");
                                 }
+                                }
+                                else
+                                {
+                                    SendData(stream, "false");
+                                    break;
+                                }
                                 break;
                             case "broadcast":
-                                try
+                                if (data[4] == GetCurrentTime())
+                                {
+                                    try
                                 {
                                     plugin.Server.Map.Broadcast(10, data[3], true);
                                     SendData(stream, "true");
@@ -288,13 +367,21 @@ namespace DRA_PLUGIN
                                 {
                                     SendData(stream, "false");
                                 }
+                                }
+                                else
+                                {
+                                    SendData(stream, "false");
+                                    break;
+                                }
                                 break;
                             case "nuke":
-                                try
+                                if (data[5] == GetCurrentTime())
                                 {
-                                    if (data[3] == "true")
+                                    try
+                                {
+                                    if (data[4] == "true")
                                         plugin.Server.Map.StartWarhead();
-                                    else if (data[3] == "false")
+                                    else if (data[4] == "false")
                                         plugin.Server.Map.StopWarhead();
                                     SendData(stream, "true");
                                 }
@@ -302,9 +389,17 @@ namespace DRA_PLUGIN
                                 {
                                     SendData(stream, "false");
                                 }
+                                }
+                                else
+                                {
+                                    SendData(stream, "false");
+                                    break;
+                                }
                                 break;
                             case "spawnNTF":
-                                try
+                                if (data[3] == GetCurrentTime())
+                                {
+                                    try
                                 {
                                     plugin.Server.Round.MTFRespawn(false);
                                     SendData(stream, "true");
@@ -313,9 +408,17 @@ namespace DRA_PLUGIN
                                 {
                                     SendData(stream, "false");
                                 }
+                                }
+                                else
+                                {
+                                    SendData(stream, "false");
+                                    break;
+                                }
                                 break;
                             case "spawnCI":
-                                try
+                                if (data[3] == GetCurrentTime())
+                                {
+                                    try
                                 {
                                     plugin.Server.Round.MTFRespawn(true);
                                     SendData(stream, "true");
@@ -323,6 +426,12 @@ namespace DRA_PLUGIN
                                 catch
                                 {
                                     SendData(stream, "false");
+                                }
+                                }
+                                else
+                                {
+                                    SendData(stream, "false");
+                                    break;
                                 }
                                 break;
                         }
