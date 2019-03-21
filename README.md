@@ -1,6 +1,7 @@
 ### / ! \ WARNING THIS IS IN BETA THERE IS BUGS! / ! \
 ## Known Bugs
 - Force MTF/CI Respawns don't work.
+- Showing only one player.
 
 # Desktop Remote Admin (AKA DRA)
 ## What is it?
