@@ -442,15 +442,6 @@ namespace DRA_PLUGIN
                             }
                             break;
                             #endregion
-
-                        }
-                        catch
-                        {
-                            if (plugin.GetConfigBool("dra_logs"))
-                                plugin.Warn("Client tried to use a command, but the password was incorrect!");
-                            SendData(stream, "false");
-                            break;
-                        }
                 }
             }
             catch (Exception e)
