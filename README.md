@@ -1,6 +1,5 @@
 ### / ! \ WARNING THIS IS IN BETA THERE IS BUGS! / ! \
 ## Known Bugs
-- Nukes don't work.
 - Force MTF/CI Respawns don't work.
 
 # Desktop Remote Admin (AKA DRA)
