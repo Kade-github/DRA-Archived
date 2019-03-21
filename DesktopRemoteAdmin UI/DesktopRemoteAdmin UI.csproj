@@ -55,6 +55,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PluginsBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer - Copy %282%29.cs">
+      <DependentUpon>PluginsBox.cs</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Libs\Crypto.cs" />
     <Compile Include="Libs\Variables.cs" />
     <Compile Include="Main.cs">
@@ -73,6 +80,9 @@
     <Compile Include="Libs\Tcp.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="PluginsBox.resx">
+      <DependentUpon>PluginsBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>

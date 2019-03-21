@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Linq;
 using System.IO;
 using System.Timers;
+using Smod2;
 
 namespace DRA_PLUGIN
 {
@@ -210,7 +211,7 @@ namespace DRA_PLUGIN
                                 }
                                     break;
                                 case "forceClassPlayer":
-                                    if (int.Parse(data[4]) == GetCurrentTime())
+                                    if (int.Parse(data[5]) == GetCurrentTime())
                                     {
                                         try
                                         {
@@ -435,11 +436,92 @@ namespace DRA_PLUGIN
                                     }
                                     else
                                     {
-                                        SendData(stream, "false");
-                                        break;
-                                    }
+                                    SendData(stream, "timeSkip");
                                     break;
-                            }
+                                }
+                                    break;
+                            case "runCMD":
+                                if (int.Parse(data[5]) == GetCurrentTime())
+                                {
+                                    try
+                                    {
+                                        plugin.pluginManager.CommandManager.CallCommand(plugin.Server, data[4], data[5].Split(' '));
+                                        SendData(stream, "true");
+                                    }
+                                    catch
+                                    {
+                                        SendData(stream, "false");
+                                    }
+                                }
+                                else
+                                {
+                                    SendData(stream, "timeSkip");
+                                    break;
+                                }
+                                break;
+                            case "getPlugins":
+                                if (int.Parse(data[3]) == GetCurrentTime())
+                                {
+                                    try
+                                    {
+                                        string pluginNames = "";
+                                        List<Plugin> a = plugin.pluginManager.Plugins;
+                                        foreach(Plugin aa in a)
+                                        {
+                                            pluginNames = "\n" + aa.Details.name + "|By " + aa.Details.author + "|Version " + aa.Details.version + "|" + aa.Details.id;
+                                        }
+                                        SendData(stream, pluginNames);
+                                    }
+                                    catch
+                                    {
+                                        SendData(stream, "false");
+                                    }
+                                }
+                                else
+                                {
+                                    SendData(stream, "timeSkip");
+                                    break;
+                                }
+                                break;
+                            case "disablePlugin":
+                                if (int.Parse(data[4]) == GetCurrentTime())
+                                {
+                                    try
+                                    {
+                                        plugin.pluginManager.DisablePlugin(data[3]);
+                                        SendData(stream, "true");
+                                    }
+                                    catch
+                                    {
+                                        SendData(stream, "false");
+                                    }
+                                }
+                                else
+                                {
+                                    SendData(stream, "timeSkip");
+                                    break;
+                                }
+                                break;
+                            case "enablePlugin":
+                                if (int.Parse(data[4]) == GetCurrentTime())
+                                {
+                                    try
+                                    {
+                                        plugin.pluginManager.EnablePlugin(plugin.pluginManager.GetDisabledPlugin(data[3]));
+                                        SendData(stream, "true");
+                                    }
+                                    catch
+                                    {
+                                        SendData(stream, "false");
+                                    }
+                                }
+                                else
+                                {
+                                    SendData(stream, "timeSkip");
+                                    break;
+                                }
+                                break;
+                        }
                             break;
                             #endregion
                 }
@@ -457,11 +539,73 @@ namespace DRA_PLUGIN
             tcpClient.Close();
         }
 
+        #region RoleCheck
         public static Role GetRoleFromString(string roleName)
         {
-            Role role = (Role)Enum.Parse(typeof(Role), roleName);
-            return role;
+            Role a = Role.UNASSIGNED;
+            switch (roleName)
+            {
+                case "CHAOS_INSURGENCY":
+                    a = Role.CHAOS_INSURGENCY;
+                    break;
+                case "CLASSD":
+                    a = Role.CLASSD;
+                    break;
+                case "FACILITY_GUARD":
+                    a = Role.FACILITY_GUARD;
+                    break;
+                case "NTF_CADET":
+                    a = Role.NTF_CADET;
+                    break;
+                case "NTF_COMMANDER":
+                    a = Role.NTF_COMMANDER;
+                    break;
+                case "NTF_LIEUTENANT":
+                    a = Role.NTF_LIEUTENANT;
+                    break;
+                case "NTF_SCIENTIST":
+                    a = Role.NTF_SCIENTIST;
+                    break;
+                case "SCIENTIST":
+                    a = Role.SCIENTIST;
+                    break;
+                case "SCP_049":
+                    a = Role.SCP_049;
+                    break;
+                case "SCP_049_2":
+                    a = Role.SCP_049_2;
+                    break;
+                case "SCP_079":
+                    a = Role.SCP_079;
+                    break;
+                case "SCP_096":
+                    a = Role.SCP_096;
+                    break;
+                case "SCP_106":
+                    a = Role.SCP_106;
+                    break;
+                case "SCP_173":
+                    a = Role.SCP_173;
+                    break;
+                case "SCP_939_53":
+                    a = Role.SCP_939_53;
+                    break;
+                case "SCP_939_89":
+                    a = Role.SCP_939_89;
+                    break;
+                case "TUTORIAL":
+                    a = Role.TUTORIAL;
+                    break;
+                case "SPECTATOR":
+                    a = Role.SPECTATOR;
+                    break;
+                case "UNASSIGNED":
+                    a = Role.UNASSIGNED;
+                    break;
+            }
+            return a;
         }
+        #endregion
 
         public static Player FindPlayer(string name)
         {
@@ -472,6 +616,8 @@ namespace DRA_PLUGIN
         }
         private static void SendData(NetworkStream stream, string data)
         {
+            string password = plugin.GetConfigString("dra_password");
+            string EncData = Crypto.EncryptStringAES(data, password);
             byte[] bytes = Encoding.UTF8.GetBytes(data + "|");
 
             stream.Write(bytes, 0, bytes.Length);
@@ -483,7 +629,10 @@ namespace DRA_PLUGIN
 
             stream.Read(bytes, 0, bytes.Length);
 
-            string[] data = Encoding.UTF8.GetString(bytes).Split('|');
+            string password = plugin.GetConfigString("dra_password");
+            string DecData = Crypto.EncryptStringAES(Encoding.UTF8.GetString(bytes), password);
+
+            string[] data = DecData.Split('|');
 
             stream.Flush();
 

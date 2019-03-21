@@ -51,6 +51,8 @@ namespace DesktopRemoteAdmin_UI
             {
                 NetworkStream s = Tcp.Connect(txt_IP.Text,int.Parse(txt_Port.Text));
 
+                Variables.CachePassword = txt_Pass.Text;
+
                 Tcp.SendData("login|" + Crypto.EncryptStringAES("dudeIdkDecryptThisSheitLmAO", txt_Pass.Text),s);
 
                 string[] data = Tcp.Recieve(s);
@@ -68,14 +70,17 @@ namespace DesktopRemoteAdmin_UI
                     Properties.Settings.Default.cachedPASS = txt_Pass.Text;
                     Properties.Settings.Default.cachedPORT = int.Parse(txt_Port.Text);
                     Properties.Settings.Default.Save();
-                    Variables.CachePassword = txt_Pass.Text;
                     new Main(txt_IP.Text,txt_Port.Text).Show();
                     Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Unknown Result! Make sure your on the latest version!","DRA Connection");
                 }
             }
             catch
             {
-                MessageBox.Show("Failed to connect to the server!", "Desktop Remote Admin Login");
+                MessageBox.Show("Failed to connect to the server!", "DRA Connection");
             }
 
         }

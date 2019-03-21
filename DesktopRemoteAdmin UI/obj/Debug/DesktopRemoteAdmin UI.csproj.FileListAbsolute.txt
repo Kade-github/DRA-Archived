@@ -32,3 +32,4 @@ C:\Users\kadep\Documents\Desktop Remote Admin\Desktop-Remote-Admin-SCP-SL-SMOD-P
 C:\Users\kadep\Documents\Desktop Remote Admin\Desktop-Remote-Admin-SCP-SL-SMOD-PLUGIN-\DesktopRemoteAdmin UI\obj\Debug\DesktopRemoteAdmin UI.csproj.CopyComplete
 C:\Users\kadep\Documents\Desktop Remote Admin\Desktop-Remote-Admin-SCP-SL-SMOD-PLUGIN-\DesktopRemoteAdmin UI\obj\Debug\DesktopRemoteAdmin UI.exe
 C:\Users\kadep\Documents\Desktop Remote Admin\Desktop-Remote-Admin-SCP-SL-SMOD-PLUGIN-\DesktopRemoteAdmin UI\obj\Debug\DesktopRemoteAdmin UI.pdb
+C:\Users\kadep\Documents\Desktop Remote Admin\Desktop-Remote-Admin-SCP-SL-SMOD-PLUGIN-\DesktopRemoteAdmin UI\obj\Debug\DesktopRemoteAdmin_UI.PluginBox.resources

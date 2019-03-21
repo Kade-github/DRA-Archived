@@ -394,7 +394,7 @@ namespace DesktopRemoteAdmin_UI
                 MessageBox.Show("Failure!", "DRA Commands");
         }
 
-        private static int GetCurrentTime()
+        public static int GetCurrentTime()
         {
             
             DateTime currentTime = DateTime.Now;
@@ -404,6 +404,31 @@ namespace DesktopRemoteAdmin_UI
         private void Button21_Click(object sender, EventArgs e)
         {
             SetClass("SCP_096");
+        }
+
+        private void Button30_Click(object sender, EventArgs e)
+        {
+            NetworkStream s = Tcp.Connect(ip, port);
+            string args = textBox3.Text.Substring(textBox3.Text.Split(' ')[0].Count());
+            MessageBox.Show("Command: " + textBox3.Text.Split(' ')[0] + " | Args: " + args);
+            Tcp.SendData($"cmd|{Crypto.EncryptStringAES("dudeIdkDecryptThisSheitLmAO", Variables.CachePassword)}|runCMD|{textBox3.Text.Split(' ')[0]}|{args}|{GetCurrentTime()}", s);
+
+            string[] data = Tcp.Recieve(s);
+
+            if (data[0] == "true")
+                MessageBox.Show("Done!", "DRA Commands");
+            else
+                MessageBox.Show("Failure!", "DRA Commands");
+        }
+
+        private void Button31_Click(object sender, EventArgs e)
+        {
+            SetClass("UNASSIGNED");
+        }
+
+        private void Button29_Click(object sender, EventArgs e)
+        {
+            new PluginBox(ip, port).ShowDialog();
         }
     }
 }

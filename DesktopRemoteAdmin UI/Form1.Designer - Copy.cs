@@ -33,6 +33,11 @@
             this.playerInnerRim = new System.Windows.Forms.Panel();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.innerRim = new System.Windows.Forms.Panel();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.button32 = new System.Windows.Forms.Button();
+            this.button31 = new System.Windows.Forms.Button();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.button30 = new System.Windows.Forms.Button();
             this.button21 = new System.Windows.Forms.Button();
             this.button28 = new System.Windows.Forms.Button();
             this.button27 = new System.Windows.Forms.Button();
@@ -73,8 +78,9 @@
             this.lbl_Title = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btn_Close = new System.Windows.Forms.Button();
+            this.button29 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
+            this.btn_Close = new System.Windows.Forms.Button();
             this.outerRim.SuspendLayout();
             this.playerOuterRim.SuspendLayout();
             this.playerInnerRim.SuspendLayout();
@@ -128,6 +134,11 @@
             // innerRim
             // 
             this.innerRim.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.innerRim.Controls.Add(this.textBox5);
+            this.innerRim.Controls.Add(this.button32);
+            this.innerRim.Controls.Add(this.button31);
+            this.innerRim.Controls.Add(this.textBox3);
+            this.innerRim.Controls.Add(this.button30);
             this.innerRim.Controls.Add(this.button21);
             this.innerRim.Controls.Add(this.button28);
             this.innerRim.Controls.Add(this.button27);
@@ -172,12 +183,72 @@
             this.innerRim.TabIndex = 0;
             this.innerRim.Paint += new System.Windows.Forms.PaintEventHandler(this.InnerRim_Paint);
             // 
+            // textBox5
+            // 
+            this.textBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox5.ForeColor = System.Drawing.Color.White;
+            this.textBox5.Location = new System.Drawing.Point(502, 157);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(130, 20);
+            this.textBox5.TabIndex = 44;
+            this.textBox5.Text = "Message";
+            // 
+            // button32
+            // 
+            this.button32.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button32.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button32.ForeColor = System.Drawing.Color.White;
+            this.button32.Location = new System.Drawing.Point(449, 155);
+            this.button32.Name = "button32";
+            this.button32.Size = new System.Drawing.Size(51, 23);
+            this.button32.TabIndex = 43;
+            this.button32.Text = "PTC";
+            this.button32.UseVisualStyleBackColor = true;
+            // 
+            // button31
+            // 
+            this.button31.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button31.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button31.ForeColor = System.Drawing.Color.White;
+            this.button31.Location = new System.Drawing.Point(328, 391);
+            this.button31.Name = "button31";
+            this.button31.Size = new System.Drawing.Size(100, 23);
+            this.button31.TabIndex = 42;
+            this.button31.Text = "Unassigned";
+            this.button31.UseVisualStyleBackColor = true;
+            this.button31.Click += new System.EventHandler(this.Button31_Click);
+            // 
+            // textBox3
+            // 
+            this.textBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox3.ForeColor = System.Drawing.Color.White;
+            this.textBox3.Location = new System.Drawing.Point(522, 370);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(110, 20);
+            this.textBox3.TabIndex = 41;
+            this.textBox3.Text = "CMD";
+            // 
+            // button30
+            // 
+            this.button30.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button30.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button30.ForeColor = System.Drawing.Color.White;
+            this.button30.Location = new System.Drawing.Point(448, 368);
+            this.button30.Name = "button30";
+            this.button30.Size = new System.Drawing.Size(72, 23);
+            this.button30.TabIndex = 40;
+            this.button30.Text = "Run CMD";
+            this.button30.UseVisualStyleBackColor = true;
+            this.button30.Click += new System.EventHandler(this.Button30_Click);
+            // 
             // button21
             // 
             this.button21.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button21.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button21.ForeColor = System.Drawing.Color.White;
-            this.button21.Location = new System.Drawing.Point(328, 368);
+            this.button21.Location = new System.Drawing.Point(328, 366);
             this.button21.Name = "button21";
             this.button21.Size = new System.Drawing.Size(100, 23);
             this.button21.TabIndex = 39;
@@ -242,7 +313,7 @@
             this.button24.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button24.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button24.ForeColor = System.Drawing.Color.White;
-            this.button24.Location = new System.Drawing.Point(277, 123);
+            this.button24.Location = new System.Drawing.Point(277, 120);
             this.button24.Name = "button24";
             this.button24.Size = new System.Drawing.Size(100, 23);
             this.button24.TabIndex = 34;
@@ -401,7 +472,7 @@
             this.button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button15.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button15.ForeColor = System.Drawing.Color.White;
-            this.button15.Location = new System.Drawing.Point(222, 394);
+            this.button15.Location = new System.Drawing.Point(222, 392);
             this.button15.Name = "button15";
             this.button15.Size = new System.Drawing.Size(100, 23);
             this.button15.TabIndex = 19;
@@ -414,7 +485,7 @@
             this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button14.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button14.ForeColor = System.Drawing.Color.White;
-            this.button14.Location = new System.Drawing.Point(222, 368);
+            this.button14.Location = new System.Drawing.Point(222, 366);
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(100, 23);
             this.button14.TabIndex = 18;
@@ -427,7 +498,7 @@
             this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button13.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button13.ForeColor = System.Drawing.Color.White;
-            this.button13.Location = new System.Drawing.Point(328, 339);
+            this.button13.Location = new System.Drawing.Point(328, 337);
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(100, 23);
             this.button13.TabIndex = 17;
@@ -440,7 +511,7 @@
             this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button12.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button12.ForeColor = System.Drawing.Color.White;
-            this.button12.Location = new System.Drawing.Point(222, 339);
+            this.button12.Location = new System.Drawing.Point(222, 337);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(100, 23);
             this.button12.TabIndex = 16;
@@ -453,7 +524,7 @@
             this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button11.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button11.ForeColor = System.Drawing.Color.White;
-            this.button11.Location = new System.Drawing.Point(222, 310);
+            this.button11.Location = new System.Drawing.Point(222, 308);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(100, 23);
             this.button11.TabIndex = 15;
@@ -466,7 +537,7 @@
             this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button10.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button10.ForeColor = System.Drawing.Color.White;
-            this.button10.Location = new System.Drawing.Point(328, 281);
+            this.button10.Location = new System.Drawing.Point(328, 279);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(100, 23);
             this.button10.TabIndex = 14;
@@ -479,7 +550,7 @@
             this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button9.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button9.ForeColor = System.Drawing.Color.White;
-            this.button9.Location = new System.Drawing.Point(328, 310);
+            this.button9.Location = new System.Drawing.Point(328, 308);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(100, 23);
             this.button9.TabIndex = 14;
@@ -492,7 +563,7 @@
             this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button8.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button8.ForeColor = System.Drawing.Color.White;
-            this.button8.Location = new System.Drawing.Point(222, 281);
+            this.button8.Location = new System.Drawing.Point(222, 279);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(100, 23);
             this.button8.TabIndex = 13;
@@ -505,7 +576,7 @@
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button7.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button7.ForeColor = System.Drawing.Color.White;
-            this.button7.Location = new System.Drawing.Point(222, 223);
+            this.button7.Location = new System.Drawing.Point(222, 221);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(100, 23);
             this.button7.TabIndex = 12;
@@ -518,7 +589,7 @@
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button6.ForeColor = System.Drawing.Color.White;
-            this.button6.Location = new System.Drawing.Point(222, 252);
+            this.button6.Location = new System.Drawing.Point(222, 250);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(100, 23);
             this.button6.TabIndex = 11;
@@ -531,7 +602,7 @@
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(328, 252);
+            this.button5.Location = new System.Drawing.Point(328, 250);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(100, 23);
             this.button5.TabIndex = 10;
@@ -544,7 +615,7 @@
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(328, 223);
+            this.button4.Location = new System.Drawing.Point(328, 221);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(100, 23);
             this.button4.TabIndex = 9;
@@ -557,7 +628,7 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Arial", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(328, 194);
+            this.button3.Location = new System.Drawing.Point(328, 192);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(100, 23);
             this.button3.TabIndex = 8;
@@ -570,7 +641,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(222, 194);
+            this.button2.Location = new System.Drawing.Point(222, 192);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 23);
             this.button2.TabIndex = 7;
@@ -583,7 +654,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(328, 165);
+            this.button1.Location = new System.Drawing.Point(328, 163);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 23);
             this.button1.TabIndex = 6;
@@ -596,7 +667,7 @@
             this.btn_Connect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Connect.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Connect.ForeColor = System.Drawing.Color.White;
-            this.btn_Connect.Location = new System.Drawing.Point(222, 165);
+            this.btn_Connect.Location = new System.Drawing.Point(222, 163);
             this.btn_Connect.Name = "btn_Connect";
             this.btn_Connect.Size = new System.Drawing.Size(100, 23);
             this.btn_Connect.TabIndex = 5;
@@ -620,7 +691,7 @@
             this.richTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBox1.ForeColor = System.Drawing.Color.White;
-            this.richTextBox1.Location = new System.Drawing.Point(222, 72);
+            this.richTextBox1.Location = new System.Drawing.Point(222, 69);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ReadOnly = true;
             this.richTextBox1.Size = new System.Drawing.Size(206, 50);
@@ -632,7 +703,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(271, 51);
+            this.label1.Location = new System.Drawing.Point(271, 49);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(108, 18);
             this.label1.TabIndex = 2;
@@ -661,6 +732,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.panel2.Controls.Add(this.button29);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.btn_Close);
             this.panel2.Location = new System.Drawing.Point(4, 4);
@@ -668,6 +740,32 @@
             this.panel2.Size = new System.Drawing.Size(639, 18);
             this.panel2.TabIndex = 0;
             this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.label1_MouseDown);
+            // 
+            // button29
+            // 
+            this.button29.FlatAppearance.BorderSize = 0;
+            this.button29.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button29.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button29.ForeColor = System.Drawing.Color.White;
+            this.button29.Location = new System.Drawing.Point(506, -2);
+            this.button29.Name = "button29";
+            this.button29.Size = new System.Drawing.Size(74, 20);
+            this.button29.TabIndex = 2;
+            this.button29.Text = "Plugins [P]";
+            this.button29.UseVisualStyleBackColor = true;
+            this.button29.Click += new System.EventHandler(this.Button29_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(1, 3);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(94, 14);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Last Refresh: N/A";
+            this.label5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.label1_MouseDown);
             // 
             // btn_Close
             // 
@@ -682,17 +780,6 @@
             this.btn_Close.Text = "Close [X]";
             this.btn_Close.UseVisualStyleBackColor = true;
             this.btn_Close.Click += new System.EventHandler(this.Btn_Close_Click);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(1, 3);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(94, 14);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "Last Refresh: N/A";
             // 
             // Main
             // 
@@ -767,6 +854,12 @@
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button button21;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button button29;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Button button30;
+        private System.Windows.Forms.Button button31;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Button button32;
     }
 }
 
