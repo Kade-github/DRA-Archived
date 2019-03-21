@@ -68,25 +68,30 @@ namespace DesktopRemoteAdmin_UI
                 Tcp.SendData($"cmd|{Crypto.EncryptStringAES("dudeIdkDecryptThisSheitLmAO", Variables.CachePassword)}|getPlayers|{GetCurrentTime()}", s);
 
                 string[] data = Tcp.Recieve(s);
-                
-                if (data[0] == "false")
-                    MessageBox.Show("Failed to connect with the server,\nReason: Bad Password!", "DRA Connection");
-                else if (data[0] == "notStarted")
-                {
-                    listBox1.Items.Clear();
-                    listBox1.Items.Add("The server has not fully started!");
-                }
-                else
-                {
-                    string data2 = string.Join("\n", data);
 
-                    string[] data3 = data2.Split('\n');
+                    if (data[0] == "false")
+                        MessageBox.Show("Failed to connect with the server,\nReason: Bad Password!", "DRA Connection");
+                    else if (data[0] == "notStarted")
+                    {
+                        listBox1.Items.Clear();
+                        listBox1.Items.Add("The server has not fully started!");
+                    }
+                    else if (data[0] == "timeSkip")
+                    {
+                        listBox1.Items.Clear();
+                        listBox1.Items.Add("Your time skipped! Retrying in 10s");
+                    }
+                    else
+                    {
+                        string data2 = string.Join("\n", data);
+
+                        string[] data3 = data2.Split('\n');
                         listBox1.Items.Clear();
                         foreach (string strin in data3)
-                    {
-                        listBox1.Items.Add(strin);
+                        {
+                            listBox1.Items.Add(strin);
+                        }
                     }
-                }
                 Thread.Sleep(10000);
                 }
                 catch
