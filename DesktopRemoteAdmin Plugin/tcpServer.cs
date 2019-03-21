@@ -184,7 +184,7 @@ namespace DRA_PLUGIN
                                     }
                                     else
                                     {
-                                        SendData(stream, "false");
+                                        SendData(stream, "timeSkip");
                                         break;
                                     }
                                 case "getPlayerInfo":
@@ -205,9 +205,9 @@ namespace DRA_PLUGIN
                                     }
                                     else
                                     {
-                                        SendData(stream, "false");
-                                        break;
-                                    }
+                                    SendData(stream, "timeSkip");
+                                    break;
+                                }
                                     break;
                                 case "forceClassPlayer":
                                     if (int.Parse(data[4]) == GetCurrentTime())
@@ -225,9 +225,9 @@ namespace DRA_PLUGIN
                                     }
                                     else
                                     {
-                                        SendData(stream, "false");
-                                        break;
-                                    }
+                                    SendData(stream, "timeSkip");
+                                    break;
+                                }
                                     break;
                                 case "kickPlayer":
                                     if (int.Parse(data[4]) == GetCurrentTime())
@@ -247,9 +247,9 @@ namespace DRA_PLUGIN
                                     }
                                     else
                                     {
-                                        SendData(stream, "false");
-                                        break;
-                                    }
+                                    SendData(stream, "timeSkip");
+                                    break;
+                                }
                                     break;
                                 case "banPlayer":
                                     if (int.Parse(data[4]) == GetCurrentTime())
@@ -269,9 +269,9 @@ namespace DRA_PLUGIN
                                     }
                                     else
                                     {
-                                        SendData(stream, "false");
-                                        break;
-                                    }
+                                    SendData(stream, "timeSkip");
+                                    break;
+                                }
                                     break;
                                 case "infectPlayer":
                                     if (int.Parse(data[4]) == GetCurrentTime())
@@ -291,9 +291,9 @@ namespace DRA_PLUGIN
                                     }
                                     else
                                     {
-                                        SendData(stream, "false");
-                                        break;
-                                    }
+                                    SendData(stream, "timeSkip");
+                                    break;
+                                }
                                     break;
                                 case "killPlayer":
                                     if (int.Parse(data[4]) == GetCurrentTime())
@@ -313,9 +313,9 @@ namespace DRA_PLUGIN
                                     }
                                     else
                                     {
-                                        SendData(stream, "false");
-                                        break;
-                                    }
+                                    SendData(stream, "timeSkip");
+                                    break;
+                                }
                                     break;
                                 case "sendPBC":
                                     if (int.Parse(data[4]) == GetCurrentTime())
@@ -335,9 +335,9 @@ namespace DRA_PLUGIN
                                     }
                                     else
                                     {
-                                        SendData(stream, "false");
-                                        break;
-                                    }
+                                    SendData(stream, "timeSkip");
+                                    break;
+                                }
                                     break;
                                 case "restartRound":
                                     if (int.Parse(data[3]) == GetCurrentTime())
@@ -356,9 +356,9 @@ namespace DRA_PLUGIN
                                     }
                                     else
                                     {
-                                        SendData(stream, "false");
-                                        break;
-                                    }
+                                    SendData(stream, "timeSkip");
+                                    break;
+                                }
                                     break;
                                 case "broadcast":
                                     if (int.Parse(data[4]) == GetCurrentTime())
@@ -375,9 +375,9 @@ namespace DRA_PLUGIN
                                     }
                                     else
                                     {
-                                        SendData(stream, "false");
-                                        break;
-                                    }
+                                    SendData(stream, "timeSkip");
+                                    break;
+                                }
                                     break;
                                 case "nuke":
                                     if (int.Parse(data[5]) == GetCurrentTime())
@@ -397,9 +397,9 @@ namespace DRA_PLUGIN
                                     }
                                     else
                                     {
-                                        SendData(stream, "false");
-                                        break;
-                                    }
+                                    SendData(stream, "timeSkip");
+                                    break;
+                                }
                                     break;
                                 case "spawnNTF":
                                     if (int.Parse(data[3]) == GetCurrentTime())
@@ -416,9 +416,9 @@ namespace DRA_PLUGIN
                                     }
                                     else
                                     {
-                                        SendData(stream, "false");
-                                        break;
-                                    }
+                                    SendData(stream, "timeSkip");
+                                    break;
+                                }
                                     break;
                                 case "spawnCI":
                                     if (int.Parse(data[3]) == GetCurrentTime())
@@ -443,14 +443,14 @@ namespace DRA_PLUGIN
                             break;
                             #endregion
 
-                        /*}
+                        }
                         catch
                         {
                             if (plugin.GetConfigBool("dra_logs"))
                                 plugin.Warn("Client tried to use a command, but the password was incorrect!");
                             SendData(stream, "false");
                             break;
-                        }*/
+                        }
                 }
             }
             catch (Exception e)
