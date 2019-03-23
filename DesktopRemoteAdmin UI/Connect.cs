@@ -47,8 +47,6 @@ namespace DesktopRemoteAdmin_UI
 
         private void Btn_Connect_Click(object sender, EventArgs e)
         {
-            try
-            {
                 NetworkStream s = Tcp.Connect(txt_IP.Text,int.Parse(txt_Port.Text));
 
                 Variables.CachePassword = txt_Pass.Text;
@@ -73,15 +71,7 @@ namespace DesktopRemoteAdmin_UI
                     new Main(txt_IP.Text,txt_Port.Text).Show();
                     Hide();
                 }
-                else
-                {
-                    MessageBox.Show("Unknown Result! Make sure your on the latest version!","DRA Connection");
-                }
-            }
-            catch
-            {
-                MessageBox.Show("Failed to connect to the server!", "DRA Connection");
-            }
+            
 
         }
 

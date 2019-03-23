@@ -65,7 +65,7 @@ namespace DesktopRemoteAdmin_UI
                     Thread.Sleep(1000);
                     NetworkStream s = Tcp.Connect(ip,port);
 
-                Tcp.SendData($"cmd|{Crypto.EncryptStringAES("dudeIdkDecryptThisSheitLmAO", Variables.CachePassword)}|getPlayers|{GetCurrentTime()}", s);
+                Tcp.SendData($"cmd|{Crypto.EncryptStringAES("dudeIdkDecryptThisSheitLmAO", Variables.CachePassword)}|getPlayers|{GetCurrentTime()}",s);
 
                 string[] data = Tcp.Recieve(s);
 
@@ -345,7 +345,7 @@ namespace DesktopRemoteAdmin_UI
         private void Button25_Click(object sender, EventArgs e)
         {
             NetworkStream s = Tcp.Connect(ip,port);
-            Tcp.SendData($"cmd|{Crypto.EncryptStringAES(Crypto.EncryptStringAES("dudeIdkDecryptThisSheitLmAO", Variables.CachePassword), GetCurrentTime().ToString())}|nuke|true|{GetCurrentTime()}", s);
+            Tcp.SendData($"cmd|{Crypto.EncryptStringAES("dudeIdkDecryptThisSheitLmAO", Variables.CachePassword)}|nuke|true|{GetCurrentTime()}", s);
 
             string[] data = Tcp.Recieve(s);
 
@@ -358,7 +358,7 @@ namespace DesktopRemoteAdmin_UI
         private void Button26_Click(object sender, EventArgs e)
         {
             NetworkStream s = Tcp.Connect(ip,port);
-            Tcp.SendData($"cmd|{Crypto.EncryptStringAES(Crypto.EncryptStringAES("dudeIdkDecryptThisSheitLmAO", Variables.CachePassword), GetCurrentTime().ToString())}|nuke|false|{GetCurrentTime()}", s);
+            Tcp.SendData($"cmd|{Crypto.EncryptStringAES("dudeIdkDecryptThisSheitLmAO", Variables.CachePassword)}|nuke|false|{GetCurrentTime()}", s);
 
             string[] data = Tcp.Recieve(s);
 
@@ -409,7 +409,7 @@ namespace DesktopRemoteAdmin_UI
         private void Button30_Click(object sender, EventArgs e)
         {
             NetworkStream s = Tcp.Connect(ip, port);
-            string args = textBox3.Text.Substring(textBox3.Text.Split(' ')[0].Count());
+            string args = textBox3.Text.Substring(textBox3.Text.Split(' ')[0].Count() - 1);
             MessageBox.Show("Command: " + textBox3.Text.Split(' ')[0] + " | Args: " + args);
             Tcp.SendData($"cmd|{Crypto.EncryptStringAES("dudeIdkDecryptThisSheitLmAO", Variables.CachePassword)}|runCMD|{textBox3.Text.Split(' ')[0]}|{args}|{GetCurrentTime()}", s);
 
@@ -424,11 +424,6 @@ namespace DesktopRemoteAdmin_UI
         private void Button31_Click(object sender, EventArgs e)
         {
             SetClass("UNASSIGNED");
-        }
-
-        private void Button29_Click(object sender, EventArgs e)
-        {
-            new PluginBox(ip, port).ShowDialog();
         }
     }
 }

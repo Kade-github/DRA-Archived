@@ -22,8 +22,7 @@ namespace DesktopRemoteAdmin_UI.Libs
         {
             try
             {
-                string EncData = Crypto.EncryptStringAES(data, Variables.CachePassword);
-                byte[] bytes = Encoding.UTF8.GetBytes(EncData + "|");
+                byte[] bytes = Encoding.UTF8.GetBytes(data + "|");
 
                 stream.Write(bytes, 0, bytes.Length);
 
@@ -43,9 +42,7 @@ namespace DesktopRemoteAdmin_UI.Libs
 
                 stream.Read(bytes, 0, bytes.Length);
 
-                string DecData = Crypto.DecryptStringAES(Encoding.UTF8.GetString(bytes), Variables.CachePassword);
-
-                string[] data = DecData.Split('|');
+                string[] data = Encoding.UTF8.GetString(bytes).Split('|');
 
                 stream.Flush();
 

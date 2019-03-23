@@ -78,7 +78,6 @@
             this.lbl_Title = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button29 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.btn_Close = new System.Windows.Forms.Button();
             this.outerRim.SuspendLayout();
@@ -732,7 +731,6 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            this.panel2.Controls.Add(this.button29);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.btn_Close);
             this.panel2.Location = new System.Drawing.Point(4, 4);
@@ -740,20 +738,6 @@
             this.panel2.Size = new System.Drawing.Size(639, 18);
             this.panel2.TabIndex = 0;
             this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.label1_MouseDown);
-            // 
-            // button29
-            // 
-            this.button29.FlatAppearance.BorderSize = 0;
-            this.button29.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button29.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button29.ForeColor = System.Drawing.Color.White;
-            this.button29.Location = new System.Drawing.Point(506, -2);
-            this.button29.Name = "button29";
-            this.button29.Size = new System.Drawing.Size(74, 20);
-            this.button29.TabIndex = 2;
-            this.button29.Text = "Plugins [P]";
-            this.button29.UseVisualStyleBackColor = true;
-            this.button29.Click += new System.EventHandler(this.Button29_Click);
             // 
             // label5
             // 
@@ -854,7 +838,6 @@
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button button21;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button29;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Button button30;
         private System.Windows.Forms.Button button31;

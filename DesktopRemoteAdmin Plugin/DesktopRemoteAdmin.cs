@@ -15,7 +15,7 @@ namespace DRA_PLUGIN
         name = "Desktop Remote Admin",
         description = "A Desktop version of Remote Admin.",
         id = "kade.dra",
-        version = "1.5",
+        version = "1.6",
         SmodMajor = 3,
         SmodMinor = 3,
         SmodRevision = 1
@@ -34,12 +34,6 @@ namespace DRA_PLUGIN
 
         public override void Register()
         {
-            new Thread(() =>
-            {
-                Thread.CurrentThread.IsBackground = true;
-                tcpServer.plugin = this;
-                tcpServer.StartServer();
-            }).Start();
             // Configs
             AddConfig(new ConfigSetting("dra_password", "", SettingType.STRING, true, "The password used to login to the UI."));
             AddConfig(new ConfigSetting("dra_status", true, SettingType.BOOL, true, "Set it to false to disable to plugin"));
@@ -47,6 +41,13 @@ namespace DRA_PLUGIN
             AddConfig(new ConfigSetting("dra_logs", false, SettingType.BOOL, true, "How much logs are annoying (true = hella annoying)"));
             // Events
             AddEventHandlers(new RoundEvent(this));
+
+            new Thread(() =>
+            {
+                Thread.CurrentThread.IsBackground = true;
+                tcpServer.plugin = this;
+                tcpServer.StartServer();
+            }).Start();
         }
     }
 }
