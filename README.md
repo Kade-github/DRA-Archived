@@ -8,7 +8,7 @@ Well first, download the ZIP from releases, then put the .dll in your sm_plugins
 Then extract the UI, then run the server, and the UI. Get your server IP then your servers DRA Password Make sure you set your port with `dra_port: portNumber` and put that into the portbox, **and make sure its portforwared.** And click connect. You should have access to everything now!
 
 ## Screenshots
-![DRA](https://i.imgur.com/VdKslYw.png "Main UI")
+![DRA](https://cdn.discordapp.com/attachments/423990355759988737/559294643934724096/unknown.png "Main UI")
 
 ## Config
 ```
