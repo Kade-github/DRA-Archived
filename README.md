@@ -1,7 +1,3 @@
-### / ! \ WARNING THIS IS IN BETA THERE IS BUGS! / ! \
-## Known Bugs
-- Force MTF/CI Respawns don't work.
-
 # Desktop Remote Admin (AKA DRA)
 ## What is it?
 This is a plugin that is based on multiple control panels for other servers, but this time its on your desktop, as a desktop app!
@@ -27,7 +23,7 @@ dra_logs: false - Logs level, true = a bunch of logs. false = little logs.
 You can do it, i'll look thru it. And we can get to it! (rhyme inteded)
 
 ### T O D O  L I S T
-- Fixing the bugs
+- ~~Fixing the bugs~~
 - ~~Making the communication more secure~~
 - ~~Adding remeber me functionailty~~
 - ~~Optimizing the code a little more.~~
