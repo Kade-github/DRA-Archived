@@ -28,19 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.outerRim = new System.Windows.Forms.Panel();
             this.innerRim = new System.Windows.Forms.Panel();
+            this.lbl_Port = new System.Windows.Forms.Label();
+            this.txt_Port = new System.Windows.Forms.TextBox();
             this.btn_Connect = new System.Windows.Forms.Button();
+            this.lbl_Pass = new System.Windows.Forms.Label();
+            this.txt_Pass = new System.Windows.Forms.TextBox();
             this.lbl_IP = new System.Windows.Forms.Label();
             this.txt_IP = new System.Windows.Forms.TextBox();
             this.lbl_Title = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btn_Close = new System.Windows.Forms.Button();
-            this.txt_Port = new System.Windows.Forms.TextBox();
-            this.lbl_Port = new System.Windows.Forms.Label();
-            this.txt_Pass = new System.Windows.Forms.TextBox();
-            this.lbl_Pass = new System.Windows.Forms.Label();
             this.outerRim.SuspendLayout();
             this.innerRim.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -73,6 +74,25 @@
             this.innerRim.TabIndex = 0;
             this.innerRim.Paint += new System.Windows.Forms.PaintEventHandler(this.InnerRim_Paint);
             // 
+            // lbl_Port
+            // 
+            this.lbl_Port.AutoSize = true;
+            this.lbl_Port.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Port.ForeColor = System.Drawing.Color.White;
+            this.lbl_Port.Location = new System.Drawing.Point(342, 67);
+            this.lbl_Port.Name = "lbl_Port";
+            this.lbl_Port.Size = new System.Drawing.Size(56, 27);
+            this.lbl_Port.TabIndex = 6;
+            this.lbl_Port.Text = "Port";
+            // 
+            // txt_Port
+            // 
+            this.txt_Port.Location = new System.Drawing.Point(345, 94);
+            this.txt_Port.Name = "txt_Port";
+            this.txt_Port.Size = new System.Drawing.Size(52, 20);
+            this.txt_Port.TabIndex = 5;
+            this.txt_Port.Text = "7790";
+            // 
             // btn_Connect
             // 
             this.btn_Connect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -85,6 +105,25 @@
             this.btn_Connect.Text = "Connect!";
             this.btn_Connect.UseVisualStyleBackColor = true;
             this.btn_Connect.Click += new System.EventHandler(this.Btn_Connect_Click);
+            // 
+            // lbl_Pass
+            // 
+            this.lbl_Pass.AutoSize = true;
+            this.lbl_Pass.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Pass.ForeColor = System.Drawing.Color.White;
+            this.lbl_Pass.Location = new System.Drawing.Point(218, 125);
+            this.lbl_Pass.Name = "lbl_Pass";
+            this.lbl_Pass.Size = new System.Drawing.Size(153, 36);
+            this.lbl_Pass.TabIndex = 4;
+            this.lbl_Pass.Text = "Password";
+            // 
+            // txt_Pass
+            // 
+            this.txt_Pass.Location = new System.Drawing.Point(198, 164);
+            this.txt_Pass.Name = "txt_Pass";
+            this.txt_Pass.Size = new System.Drawing.Size(199, 20);
+            this.txt_Pass.TabIndex = 3;
+            this.txt_Pass.UseSystemPasswordChar = true;
             // 
             // lbl_IP
             // 
@@ -148,44 +187,6 @@
             this.btn_Close.UseVisualStyleBackColor = true;
             this.btn_Close.Click += new System.EventHandler(this.Btn_Close_Click);
             // 
-            // txt_Port
-            // 
-            this.txt_Port.Location = new System.Drawing.Point(345, 94);
-            this.txt_Port.Name = "txt_Port";
-            this.txt_Port.Size = new System.Drawing.Size(52, 20);
-            this.txt_Port.TabIndex = 5;
-            this.txt_Port.Text = "7790";
-            // 
-            // lbl_Port
-            // 
-            this.lbl_Port.AutoSize = true;
-            this.lbl_Port.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Port.ForeColor = System.Drawing.Color.White;
-            this.lbl_Port.Location = new System.Drawing.Point(342, 67);
-            this.lbl_Port.Name = "lbl_Port";
-            this.lbl_Port.Size = new System.Drawing.Size(56, 27);
-            this.lbl_Port.TabIndex = 6;
-            this.lbl_Port.Text = "Port";
-            // 
-            // txt_Pass
-            // 
-            this.txt_Pass.Location = new System.Drawing.Point(198, 164);
-            this.txt_Pass.Name = "txt_Pass";
-            this.txt_Pass.Size = new System.Drawing.Size(199, 20);
-            this.txt_Pass.TabIndex = 3;
-            this.txt_Pass.UseSystemPasswordChar = true;
-            // 
-            // lbl_Pass
-            // 
-            this.lbl_Pass.AutoSize = true;
-            this.lbl_Pass.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Pass.ForeColor = System.Drawing.Color.White;
-            this.lbl_Pass.Location = new System.Drawing.Point(218, 125);
-            this.lbl_Pass.Name = "lbl_Pass";
-            this.lbl_Pass.Size = new System.Drawing.Size(153, 36);
-            this.lbl_Pass.TabIndex = 4;
-            this.lbl_Pass.Text = "Password";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -195,6 +196,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.outerRim);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Connect to a Server";
             this.outerRim.ResumeLayout(false);

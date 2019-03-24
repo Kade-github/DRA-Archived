@@ -35,7 +35,7 @@ namespace DesktopRemoteAdmin_UI
 
         static string ip = "127.0.0.1";
         static int port = 7790;
-        static string player { get; set; }
+        static string player = "";
 
         public Main(string setIp, string setPort)
         {
@@ -115,7 +115,7 @@ namespace DesktopRemoteAdmin_UI
         {
             try
             {
-                player = listBox1.GetItemText(listBox1.SelectedValue);
+                player = listBox1.Text;
                 NetworkStream s = Tcp.Connect(ip,port);
                 Tcp.SendData($"cmd|{Crypto.EncryptStringAES("dudeIdkDecryptThisSheitLmAO", Variables.CachePassword)}|getPlayerInfo|{player}|{GetCurrentTime()}", s);
                 string[] data = Tcp.Recieve(s);
@@ -409,8 +409,15 @@ namespace DesktopRemoteAdmin_UI
         private void Button30_Click(object sender, EventArgs e)
         {
             NetworkStream s = Tcp.Connect(ip, port);
-            string args = textBox3.Text.Substring(textBox3.Text.Split(' ')[0].Count() - 1);
-            MessageBox.Show("Command: " + textBox3.Text.Split(' ')[0] + " | Args: " + args);
+            string args = "";
+            try
+            {
+                args = textBox3.Text.Substring(textBox3.Text.Split(' ')[0].Count() + 1);
+            }
+            catch
+            {
+                args = "noArgs2512251";
+            }
             Tcp.SendData($"cmd|{Crypto.EncryptStringAES("dudeIdkDecryptThisSheitLmAO", Variables.CachePassword)}|runCMD|{textBox3.Text.Split(' ')[0]}|{args}|{GetCurrentTime()}", s);
 
             string[] data = Tcp.Recieve(s);
@@ -424,6 +431,19 @@ namespace DesktopRemoteAdmin_UI
         private void Button31_Click(object sender, EventArgs e)
         {
             SetClass("UNASSIGNED");
+        }
+
+        private void Button32_Click(object sender, EventArgs e)
+        {
+            NetworkStream s = Tcp.Connect(ip, port);
+            Tcp.SendData($"cmd|{Crypto.EncryptStringAES("dudeIdkDecryptThisSheitLmAO", Variables.CachePassword)}|ghostPlayer|{player}|{GetCurrentTime()}", s);
+
+            string[] data = Tcp.Recieve(s);
+
+            if (data[0] == "true")
+                MessageBox.Show("Done!", "DRA Commands");
+            else
+                MessageBox.Show("Failure!", "DRA Commands");
         }
     }
 }

@@ -28,7 +28,7 @@ namespace DRA_PLUGIN
         {
             TcpListener listener = new TcpListener(IPAddress.Any, plugin.GetConfigInt("dra_port"));
             listener.Start();
-            if (plugin.GetConfigString("dra_password") == null)
+            if (plugin.GetConfigString("dra_password") == "notSet")
             {
                 plugin.Error("The config option 'dra_password' is not set, this is incredibly unsafe! The plugin will not run untill this is set.");
                 plugin.pluginManager.DisablePlugin(plugin);
@@ -51,6 +51,79 @@ namespace DRA_PLUGIN
             return currentTime.Minute;
         }
 
+        static void CheckBan(string ip, NetworkStream stream,bool needResult)
+        {
+            if (dic.ContainsKey(ip))
+            {
+                if (dic[ip] == 3)
+                {
+                    DateTime currentTime = DateTime.Now;
+                    if (bans.ContainsKey(ip))
+                    {
+                        int result = DateTime.Compare(currentTime, bans[ip]);
+                        if (result > 0)
+                        {
+                            dic.Remove(ip);
+                            bans.Remove(ip);
+                        }
+                        else
+                        {
+                            SendData(stream, "banned");
+                            stream.Close();
+                        }
+                    }
+                    else
+                        if (needResult)
+                            SendData(stream, "true");
+                }
+                else
+                    if (needResult)
+                        SendData(stream, "true");
+            }
+            else
+                if (needResult)
+                    SendData(stream, "true");
+        }
+
+        static void Ban(string ip, NetworkStream stream)
+        {
+            if (dic.ContainsKey(ip))
+                if (dic[ip] == 3)
+                {
+                    DateTime currentTime = DateTime.Now;
+                    if (bans.ContainsKey(ip))
+                    {
+                        int result = DateTime.Compare(currentTime, bans[ip]);
+                        if (result > 0)
+                        {
+                            dic.Remove(ip);
+                            bans.Remove(ip);
+                        }
+                        else
+                        {
+                            SendData(stream, "banned");
+                            stream.Close();
+                        }
+                    }
+                    else
+                    {
+                        SendData(stream, "banned");
+                        bans.Add(ip, currentTime.AddHours(2));
+                        stream.Close();
+                    }
+                }
+                else
+                {
+                    dic[ip] = dic[ip] + 1;
+                    stream.Close();
+                }
+            else
+            {
+                dic.Add(ip, 1);
+                SendData(stream, "banned");
+                stream.Close();
+            }
+        }
         private static void Commander(object obj)
         {
             bool accept = true;
@@ -87,58 +160,13 @@ namespace DRA_PLUGIN
                             Crypto.DecryptStringAES(data[1], password);
                             if (plugin.GetConfigBool("dra_logs"))
                                 plugin.Info("Login accepted!");
-                            if (dic.ContainsKey(ip))
-                            {
-                                if (dic[ip] == 3)
-                                {
-                                    DateTime currentTime = DateTime.Now;
-                                    if (bans.ContainsKey(ip))
-                                    {
-                                        int result = DateTime.Compare(currentTime, bans[ip]);
-                                        if (result > 0)
-                                        {
-                                            dic.Remove(ip);
-                                            bans.Remove(ip); 
-                                        }
-                                        else
-                                            SendData(stream, "banned");
-                                    }
-                                }
-                            }
-                            else
-                                SendData(stream, "true");
+                            CheckBan(ip, stream,true);
                             break;
                         }
                         catch
                         {
-                            // Banning
-                            if (dic.ContainsKey(ip))
-                                if (dic[ip] == 3)
-                                {
-                                    DateTime currentTime = DateTime.Now;
-                                    if (bans.ContainsKey(ip))
-                                    {
-                                        int result = DateTime.Compare(currentTime, bans[ip]);
-                                        if (result > 0)
-                                        {
-                                            dic.Remove(ip);
-                                            bans.Remove(ip);
-                                        }
-                                        else
-                                            SendData(stream, "banned");
-                                    }
-                                    else
-                                    {
-                                        SendData(stream, "banned");
-                                        bans.Add(ip, currentTime.AddHours(2));
-                                    }
-                                }
-                                else
-                                    dic.Add(ip, dic[ip] + 1);
-                            else
-                                dic.Add(ip, 1);
                             plugin.Warn("Client tried to login, but failed!");
-                            SendData(stream, "false");
+                            Ban(ip, stream);
                             break;
                         }
                     #region commands
@@ -148,10 +176,12 @@ namespace DRA_PLUGIN
                             if (plugin.GetConfigBool("dra_logs"))
                                 plugin.Info("Accepted Command Auth");
                             Crypto.DecryptStringAES(data[1], password);
+                            CheckBan(ip, stream,false);
                         }
                         catch
                         {
-                            SendData(stream, "false");
+                            plugin.Warn("Client tried to execute a command, but failed!");
+                            Ban(ip, stream);
                             break;
                         }
                         if (plugin.GetConfigBool("dra_logs"))
@@ -250,7 +280,7 @@ namespace DRA_PLUGIN
                                 }
                                 break;
                             case "banPlayer":
-                                if (int.Parse(data[4]) == GetCurrentTime())
+                                if (int.Parse(data[5]) == GetCurrentTime())
                                 {
                                     try
                                     {
@@ -315,8 +345,33 @@ namespace DRA_PLUGIN
                                     break;
                                 }
                                 break;
-                            case "sendPBC":
+                            case "ghostPlayer":
                                 if (int.Parse(data[4]) == GetCurrentTime())
+                                {
+                                    try
+                                    {
+                                        if (plugin.GetConfigBool("dra_logs"))
+                                            plugin.Info("Finding Player");
+                                        Player p = FindPlayer(data[3]);
+                                        if (p.GetGhostMode())
+                                            p.SetGhostMode(false, true, true);
+                                        else
+                                            p.SetGhostMode(true,false,false);
+                                        SendData(stream, "true");
+                                    }
+                                    catch
+                                    {
+                                        SendData(stream, "pNotFound");
+                                    }
+                                }
+                                else
+                                {
+                                    SendData(stream, "timeSkip");
+                                    break;
+                                }
+                                break;
+                            case "sendPBC":
+                                if (int.Parse(data[5]) == GetCurrentTime())
                                 {
                                     try
                                     {
@@ -378,13 +433,13 @@ namespace DRA_PLUGIN
                                 }
                                 break;
                             case "nuke":
-                                if (int.Parse(data[5]) == GetCurrentTime())
+                                if (int.Parse(data[4]) == GetCurrentTime())
                                 {
                                     try
                                     {
-                                        if (data[4] == "true")
+                                        if (data[3] == "true")
                                             plugin.Server.Map.StartWarhead();
-                                        else if (data[4] == "false")
+                                        else if (data[3] == "false")
                                             plugin.Server.Map.StopWarhead();
                                         SendData(stream, "true");
                                     }
@@ -442,69 +497,10 @@ namespace DRA_PLUGIN
                                 {
                                     try
                                     {
-                                        plugin.pluginManager.CommandManager.CallCommand(plugin.Server, data[4], data[5].Split(' '));
-                                        SendData(stream, "true");
-                                    }
-                                    catch
-                                    {
-                                        SendData(stream, "false");
-                                    }
-                                }
-                                else
-                                {
-                                    SendData(stream, "timeSkip");
-                                    break;
-                                }
-                                break;
-                            case "getPlugins":
-                                if (int.Parse(data[3]) == GetCurrentTime())
-                                {
-                                    try
-                                    {
-                                        string pluginNames = "";
-                                        List<Plugin> a = plugin.pluginManager.Plugins;
-                                        foreach (Plugin aa in a)
-                                        {
-                                            pluginNames = "\n" + aa.Details.name + "|By " + aa.Details.author + "|Version " + aa.Details.version + "|" + aa.Details.id;
-                                        }
-                                        SendData(stream, pluginNames);
-                                    }
-                                    catch
-                                    {
-                                        SendData(stream, "false");
-                                    }
-                                }
-                                else
-                                {
-                                    SendData(stream, "timeSkip");
-                                    break;
-                                }
-                                break;
-                            case "disablePlugin":
-                                if (int.Parse(data[4]) == GetCurrentTime())
-                                {
-                                    try
-                                    {
-                                        plugin.pluginManager.DisablePlugin(data[3]);
-                                        SendData(stream, "true");
-                                    }
-                                    catch
-                                    {
-                                        SendData(stream, "false");
-                                    }
-                                }
-                                else
-                                {
-                                    SendData(stream, "timeSkip");
-                                    break;
-                                }
-                                break;
-                            case "enablePlugin":
-                                if (int.Parse(data[4]) == GetCurrentTime())
-                                {
-                                    try
-                                    {
-                                        plugin.pluginManager.EnablePlugin(plugin.pluginManager.GetDisabledPlugin(data[3]));
+                                        if (data[4] != "noArgs2512251")
+                                            plugin.pluginManager.CommandManager.CallCommand(plugin.Server, data[3], data[4].Split(' '));
+                                        else
+                                            plugin.pluginManager.CommandManager.CallCommand(plugin.Server, data[3], new string[] { "" });
                                         SendData(stream, "true");
                                     }
                                     catch
@@ -603,6 +599,14 @@ namespace DRA_PLUGIN
             return a;
         }
         #endregion
+
+        public static Plugin FindPlugin(string id)
+        {
+            Plugin p;
+            List<Plugin> a = plugin.pluginManager.Plugins;
+            p = a.OrderBy(pl => pl.Details.id.Length).First();
+            return p;
+        }
 
         public static Player FindPlayer(string name)
         {

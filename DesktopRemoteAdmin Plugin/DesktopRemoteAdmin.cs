@@ -35,19 +35,13 @@ namespace DRA_PLUGIN
         public override void Register()
         {
             // Configs
-            AddConfig(new ConfigSetting("dra_password", "", SettingType.STRING, true, "The password used to login to the UI."));
+            AddConfig(new ConfigSetting("dra_password", "notSet", SettingType.STRING, true, "The password used to login to the UI."));
             AddConfig(new ConfigSetting("dra_status", true, SettingType.BOOL, true, "Set it to false to disable to plugin"));
             AddConfig(new ConfigSetting("dra_port", 7790, SettingType.NUMERIC, true, "The port for it to connect."));
             AddConfig(new ConfigSetting("dra_logs", false, SettingType.BOOL, true, "How much logs are annoying (true = hella annoying)"));
             // Events
             AddEventHandlers(new RoundEvent(this));
-
-            new Thread(() =>
-            {
-                Thread.CurrentThread.IsBackground = true;
-                tcpServer.plugin = this;
-                tcpServer.StartServer();
-            }).Start();
+            Info("Waiting for WaitingForPlayers Scene to start the server...");
         }
     }
 }

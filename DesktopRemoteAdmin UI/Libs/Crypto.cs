@@ -10,11 +10,13 @@ namespace DesktopRemoteAdmin_UI.Libs
 {
     public class Crypto
     {
-
+        /// <summary>
+        /// When you paste a Stackoverflow shiet lmao
+        /// </summary>
         //While an app specific salt is not the best practice for
         //password based encryption, it's probably safe enough as long as
         //it is truly uncommon. Also too much work to alter this answer otherwise.
-        private static byte[] _salt = new byte[] { 11, 111, 8, 53, 86, 35, 3, 33, 48, 253, 6, 4, 3, 45, 31, 93, 1 };
+        private static byte[] _salt = new byte[] { 14, 221, 90, 30, 83, 32, 184, 255, 29, 252, 55, 77, 81, 240, 152, 122, 190, 11, 111, 8, 53, 86, 35, 3, 33, 48, 253, 6, 4, 3, 45, 31, 93, 1 };
 
         /// <summary>
         /// Encrypt the given string using AES.  The string can be decrypted using 

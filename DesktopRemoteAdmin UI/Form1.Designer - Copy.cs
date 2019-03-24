@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.outerRim = new System.Windows.Forms.Panel();
             this.playerOuterRim = new System.Windows.Forms.Panel();
             this.playerInnerRim = new System.Windows.Forms.Panel();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.innerRim = new System.Windows.Forms.Panel();
-            this.textBox5 = new System.Windows.Forms.TextBox();
             this.button32 = new System.Windows.Forms.Button();
             this.button31 = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -133,7 +133,6 @@
             // innerRim
             // 
             this.innerRim.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            this.innerRim.Controls.Add(this.textBox5);
             this.innerRim.Controls.Add(this.button32);
             this.innerRim.Controls.Add(this.button31);
             this.innerRim.Controls.Add(this.textBox3);
@@ -182,17 +181,6 @@
             this.innerRim.TabIndex = 0;
             this.innerRim.Paint += new System.Windows.Forms.PaintEventHandler(this.InnerRim_Paint);
             // 
-            // textBox5
-            // 
-            this.textBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox5.ForeColor = System.Drawing.Color.White;
-            this.textBox5.Location = new System.Drawing.Point(502, 157);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(130, 20);
-            this.textBox5.TabIndex = 44;
-            this.textBox5.Text = "Message";
-            // 
             // button32
             // 
             this.button32.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -200,10 +188,11 @@
             this.button32.ForeColor = System.Drawing.Color.White;
             this.button32.Location = new System.Drawing.Point(449, 155);
             this.button32.Name = "button32";
-            this.button32.Size = new System.Drawing.Size(51, 23);
+            this.button32.Size = new System.Drawing.Size(183, 23);
             this.button32.TabIndex = 43;
-            this.button32.Text = "PTC";
+            this.button32.Text = "Ghost this Player";
             this.button32.UseVisualStyleBackColor = true;
+            this.button32.Click += new System.EventHandler(this.Button32_Click);
             // 
             // button31
             // 
@@ -774,6 +763,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.outerRim);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Main";
             this.Text = "Server RA";
             this.Load += new System.EventHandler(this.Main_Load);
@@ -841,7 +831,6 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Button button30;
         private System.Windows.Forms.Button button31;
-        private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Button button32;
     }
 }
