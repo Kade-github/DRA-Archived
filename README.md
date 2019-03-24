@@ -7,6 +7,9 @@ Well first, download the ZIP from releases, then put the .dll in your sm_plugins
 `dra_password: password`, change password to what ever you want. Remeber that! Its how you access your panel.
 Then extract the UI, then run the server, and the UI. Get your server IP then your servers DRA Password Make sure you set your port with `dra_port: portNumber` and put that into the portbox, **and make sure its portforwared.** And click connect. You should have access to everything now!
 
+## Download
+[Download the Plugin here!](https://github.com/KadePcGames/Desktop-Remote-Admin-SCP-SL-SMOD-PLUGIN-/releases/latest)
+
 ## Screenshots
 ![DRA](https://cdn.discordapp.com/attachments/423990355759988737/559294643934724096/unknown.png "Main UI")
 
