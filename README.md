@@ -1,3 +1,5 @@
+## WARNNING: DRA Does not support multiple servers!
+
 # Desktop Remote Admin (AKA DRA)
 ## What is it?
 This is a plugin that is based on multiple control panels for other servers, but this time its on your desktop, as a desktop app!
