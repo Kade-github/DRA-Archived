@@ -15,10 +15,10 @@ namespace DRA_PLUGIN
         name = "Desktop Remote Admin",
         description = "A Desktop version of Remote Admin.",
         id = "kade.dra",
-        version = "1.6",
+        version = "2.0",
         SmodMajor = 3,
-        SmodMinor = 3,
-        SmodRevision = 1
+        SmodMinor = 4,
+        SmodRevision = 0
         )]
     public class DesktopRemoteAdmin : Plugin
     {
@@ -35,10 +35,10 @@ namespace DRA_PLUGIN
         public override void Register()
         {
             // Configs
-            AddConfig(new ConfigSetting("dra_password", "notSet", SettingType.STRING, true, "The password used to login to the UI."));
-            AddConfig(new ConfigSetting("dra_status", true, SettingType.BOOL, true, "Set it to false to disable to plugin"));
-            AddConfig(new ConfigSetting("dra_port", 7790, SettingType.NUMERIC, true, "The port for it to connect."));
-            AddConfig(new ConfigSetting("dra_logs", false, SettingType.BOOL, true, "How much logs are annoying (true = hella annoying)"));
+            AddConfig(new ConfigSetting("dra_password", "notSet", true, "The password used to login to the UI."));
+            AddConfig(new ConfigSetting("dra_status", true, true, "Set it to false to disable to plugin"));
+            AddConfig(new ConfigSetting("dra_port", 7790, true, "The port for it to connect."));
+            AddConfig(new ConfigSetting("dra_logs", false, true, "How much logs are annoying (true = hella annoying)"));
             // Events
             AddEventHandlers(new RoundEvent(this));
             Info("Waiting for WaitingForPlayers Scene to start the server...");
