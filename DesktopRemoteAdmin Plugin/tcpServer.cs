@@ -498,9 +498,9 @@ namespace DRA_PLUGIN
                                     try
                                     {
                                         if (data[4] != "noArgs2512251")
-                                            plugin.pluginManager.CommandManager.CallCommand(plugin.Server, data[3], data[4].Split(' '));
+                                            plugin.PluginManager.CommandManager.CallCommand(plugin.Server, data[3], data[4].Split(' '));
                                         else
-                                            plugin.pluginManager.CommandManager.CallCommand(plugin.Server, data[3], new string[] { "" });
+                                            plugin.PluginManager.CommandManager.CallCommand(plugin.Server, data[3], new string[] { "" });
                                         SendData(stream, "true");
                                     }
                                     catch
