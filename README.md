@@ -34,3 +34,4 @@ You can do it, i'll look thru it. And we can get to it! (rhyme inteded)
 - ~~Optimizing the code a little more.~~
 - ~~Adding more config options.~~
 - ~~Adding AES256 Encrpytion~~
+- Add steam id auth.
